@@ -3,7 +3,7 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="gntp-listeners.xml"/>
+    <import resource="classpath:/spring-configuration/growl-configuration/gntp-listeners.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
 
     <bean id="growlApplicationName" class="java.lang.String">
@@ -14,7 +14,8 @@
         <constructor-arg name="applicationName" ref="growlApplicationName"/>
     </bean>
 
-    <bean id="growlNotificationInfoFactory" class="com.btanabe.busnotifier.growl.factories.GrowlNotificationInfoFactory"/>
+    <bean id="growlNotificationInfoFactory"
+          class="com.btanabe.busnotifier.growl.factories.GrowlNotificationInfoFactory"/>
 
     <bean id="growlNotificationFactory" class="com.btanabe.busnotifier.growl.factories.GrowlNotificationFactory"/>
 

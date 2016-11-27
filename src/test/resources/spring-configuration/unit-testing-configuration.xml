@@ -4,9 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Application configurations: -->
-    <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
-    <import resource="classpath:/spring-configuration/growl-configuration/gntp-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/application-configuration.xml"/>
 
     <!-- Test specific configurations: -->
-
+    <import resource="classpath*:/spring-configuration/response-configurations/one-bus-away-response-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/model-configurations/one-bus-away-response-models.xml"/>
+    
 </beans>

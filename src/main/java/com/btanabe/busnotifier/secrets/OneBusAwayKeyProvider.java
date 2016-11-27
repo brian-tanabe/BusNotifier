@@ -7,7 +7,7 @@ import java.util.Base64;
  */
 public class OneBusAwayKeyProvider implements KeyProvider {
 
-    private static String ENCODED_KEY = "NjNjZGVjYzQtYjA1MS00ODczLWE0MDktZTFjNmRhOWRiNGYw";
+    protected static String ENCODED_KEY = "NjNjZGVjYzQtYjA1MS00ODczLWE0MDktZTFjNmRhOWRiNGYw";
 
     @Override
     public String getApiKey() {

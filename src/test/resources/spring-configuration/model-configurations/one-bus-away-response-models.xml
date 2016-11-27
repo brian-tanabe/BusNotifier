@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key={{{API-KEY}}}&lat=47.6209859&lon=-122.2998423 -->
+    <bean id="expectedArrivalsAndDeparturesForStop1_12378Model"
+          class="com.btanabe.busnotifier.model.ArrivalsAndDeparturesForStopModel">
+        <property name="code" value="200"/>
+        <property name="version" value="2"/>
+        <property name="currentTime" value="1480191545300"/>
+        <property name="text" value="OK"/>
+        <property name="data">
+            <bean class="com.btanabe.busnotifier.model.data.ArrivalsAndDeparturesForStopData">
+                <property name="entry">
+                    <bean class="com.btanabe.busnotifier.model.types.ArrivalsAndDeparturesForStopDataEntry">
+                        <property name="stopId" value="1_12378"/>
+                        <property name="nearbyStopIds">
+                            <list>
+                                <value type="java.lang.String">1_12340</value>
+                            </list>
+                        </property>
+                        <property name="situationIds">
+                            <list></list>
+                        </property>
+                        <property name="arrivalsAndDepartures">
+                            <list>
+                                <bean class="com.btanabe.busnotifier.model.types.ArrivalsAndDepartures">
+                                    <property name="arrivalEnabled" value="true"/>
+                                    <property name="blockTripSequence" value="6"/>
+                                    <property name="departureEnabled" value="true"/>
+                                    <property name="distanceFromStop" value="1115.704223160108"/>
+                                    <property name="lastUpdateTime" value="1480191371000"/>
+                                    <property name="numberOfStopsAway" value="4"/>
+                                    <property name="predicted" value="true"/>
+                                    <property name="predictedArrivalTime" value="1480191633000"/>
+                                    <property name="predictedDepartureTime" value="1480191633000"/>
+                                    <property name="routeId" value="1_100275"/>
+                                    <property name="routeLongName" value=""/>
+                                    <property name="routeShortName" value="8"/>
+                                    <property name="scheduledArrivalTime" value="1480191639000"/>
+                                    <property name="scheduledDepartureTime" value="1480191639000"/>
+                                    <property name="serviceDate" value="1480147200000"/>
+                                    <property name="situationIds">
+                                        <list></list>
+                                    </property>
+                                    <property name="status" value="default"/>
+                                    <property name="stopId" value="1_12378"/>
+                                    <property name="stopSequence" value="18"/>
+                                    <property name="totalStopsInTrip" value="36"/>
+                                    <property name="tripHeadsign" value="Mount Baker Transit Center"/>
+                                    <property name="tripId" value="1_32105728"/>
+                                    <property name="tripStatus">
+                                        <bean class="com.btanabe.busnotifier.model.types.TripStatus">
+                                            <property name="activeTripId" value="1_32105728"/>
+                                            <property name="blockTripSequence" value="6"/>
+                                            <property name="closestStop" value="1_29273"/>
+                                            <property name="closestStopTimeOffset" value="1"/>
+                                            <property name="distanceAlongTrip" value="4126.787337994654"/>
+                                            <property name="lastKnownDistanceAlongTrip" value="0"/>
+                                            <property name="lastKnownLocation">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.619964599609375"/>
+                                                    <property name="lon" value="-122.31304168701172"/>
+                                                </bean>
+                                            </property>
+                                            <property name="lastKnownOrientation" value="0"/>
+                                            <property name="lastLocationUpdateTime" value="1480191371000"/>
+                                            <property name="lastUpdateTime" value="1480191371000"/>
+                                            <property name="nextStop" value="1_29273"/>
+                                            <property name="nextStopTimeOffset" value="1"/>
+                                            <property name="orientation" value="0.4928547638169026"/>
+                                            <property name="phase" value="in_progress"/>
+                                            <property name="position">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.61996451310502"/>
+                                                    <property name="lon" value="-122.31309860154194"/>
+                                                </bean>
+                                            </property>
+                                            <property name="predicted" value="true"/>
+                                            <property name="scheduleDeviation" value="-6"/>
+                                            <property name="scheduledDistanceAlongTrip" value="4126.787337994654"/>
+                                            <property name="serviceDate" value="1480147200000"/>
+                                            <property name="situationIds">
+                                                <list></list>
+                                            </property>
+                                            <property name="status" value="SCHEDULED"/>
+                                            <property name="totalDistanceAlongTrip" value="11577.210582943519"/>
+                                            <property name="vehicleId" value="1_8016"/>
+                                        </bean>
+                                    </property>
+                                    <property name="vehicleId" value="1_8016"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.ArrivalsAndDepartures">
+                                    <property name="arrivalEnabled" value="true"/>
+                                    <property name="blockTripSequence" value="5"/>
+                                    <property name="departureEnabled" value="true"/>
+                                    <property name="distanceFromStop" value="1848.083644674036"/>
+                                    <property name="lastUpdateTime" value="1480191447000"/>
+                                    <property name="numberOfStopsAway" value="8"/>
+                                    <property name="predicted" value="true"/>
+                                    <property name="predictedArrivalTime" value="1480191995000"/>
+                                    <property name="predictedDepartureTime" value="1480191995000"/>
+                                    <property name="routeId" value="1_100009"/>
+                                    <property name="routeLongName" value=""/>
+                                    <property name="routeShortName" value="11"/>
+                                    <property name="scheduledArrivalTime" value="1480192018000"/>
+                                    <property name="scheduledDepartureTime" value="1480192018000"/>
+                                    <property name="serviceDate" value="1480147200000"/>
+                                    <property name="situationIds">
+                                        <list></list>
+                                    </property>
+                                    <property name="status" value="default"/>
+                                    <property name="stopId" value="1_12378"/>
+                                    <property name="stopSequence" value="15"/>
+                                    <property name="totalStopsInTrip" value="28"/>
+                                    <property name="tripHeadsign" value="Madison Park Via E Madison St"/>
+                                    <property name="tripId" value="1_32104874"/>
+                                    <property name="tripStatus">
+                                        <bean class="com.btanabe.busnotifier.model.types.TripStatus">
+                                            <property name="activeTripId" value="1_32104874"/>
+                                            <property name="blockTripSequence" value="5"/>
+                                            <property name="closestStop" value="1_11150"/>
+                                            <property name="closestStopTimeOffset" value="-12"/>
+                                            <property name="distanceAlongTrip" value="2461.254277129192"/>
+                                            <property name="lastKnownDistanceAlongTrip" value="0"/>
+                                            <property name="lastKnownLocation">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.615234375"/>
+                                                    <property name="lon" value="-122.3211441040039"/>
+                                                </bean>
+                                            </property>
+                                            <property name="lastKnownOrientation" value="0"/>
+                                            <property name="lastLocationUpdateTime" value="1480191447000"/>
+                                            <property name="lastUpdateTime" value="1480191447000"/>
+                                            <property name="nextStop" value="1_11510"/>
+                                            <property name="nextStopTimeOffset" value="47"/>
+                                            <property name="orientation" value="0"/>
+                                            <property name="phase" value="in_progress"/>
+                                            <property name="position">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.615234"/>
+                                                    <property name="lon" value="-122.32110480270354"/>
+                                                </bean>
+                                            </property>
+                                            <property name="predicted" value="true"/>
+                                            <property name="scheduleDeviation" value="-23"/>
+                                            <property name="scheduledDistanceAlongTrip" value="2461.254277129192"/>
+                                            <property name="serviceDate" value="1480147200000"/>
+                                            <property name="situationIds">
+                                                <list></list>
+                                            </property>
+                                            <property name="status" value="SCHEDULED"/>
+                                            <property name="totalDistanceAlongTrip" value="7389.795619378667"/>
+                                            <property name="vehicleId" value="1_7098"/>
+                                        </bean>
+                                    </property>
+                                    <property name="vehicleId" value="1_7098"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.ArrivalsAndDepartures">
+                                    <property name="arrivalEnabled" value="true"/>
+                                    <property name="blockTripSequence" value="6"/>
+                                    <property name="departureEnabled" value="true"/>
+                                    <property name="distanceFromStop" value="4444.8737387087895"/>
+                                    <property name="lastUpdateTime" value="1480191508000"/>
+                                    <property name="numberOfStopsAway" value="15"/>
+                                    <property name="predicted" value="true"/>
+                                    <property name="predictedArrivalTime" value="1480192637000"/>
+                                    <property name="predictedDepartureTime" value="1480192637000"/>
+                                    <property name="routeId" value="1_100275"/>
+                                    <property name="routeLongName" value=""/>
+                                    <property name="routeShortName" value="8"/>
+                                    <property name="scheduledArrivalTime" value="1480192599000"/>
+                                    <property name="scheduledDepartureTime" value="1480192599000"/>
+                                    <property name="serviceDate" value="1480147200000"/>
+                                    <property name="situationIds">
+                                        <list></list>
+                                    </property>
+                                    <property name="status" value="default"/>
+                                    <property name="stopId" value="1_12378"/>
+                                    <property name="stopSequence" value="18"/>
+                                    <property name="totalStopsInTrip" value="36"/>
+                                    <property name="tripHeadsign" value="Mount Baker Transit Center"/>
+                                    <property name="tripId" value="1_32105729"/>
+                                    <property name="tripStatus">
+                                        <bean class="com.btanabe.busnotifier.model.types.TripStatus">
+                                            <property name="activeTripId" value="1_32105729"/>
+                                            <property name="blockTripSequence" value="6"/>
+                                            <property name="closestStop" value="1_2200"/>
+                                            <property name="closestStopTimeOffset" value="-19"/>
+                                            <property name="distanceAlongTrip" value="700.4055091938935"/>
+                                            <property name="lastKnownDistanceAlongTrip" value="0"/>
+                                            <property name="lastKnownLocation">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.6186637878418"/>
+                                                    <property name="lon" value="-122.35675811767578"/>
+                                                </bean>
+                                            </property>
+                                            <property name="lastKnownOrientation" value="0"/>
+                                            <property name="lastLocationUpdateTime" value="1480191508000"/>
+                                            <property name="lastUpdateTime" value="1480191508000"/>
+                                            <property name="nextStop" value="1_2244"/>
+                                            <property name="nextStopTimeOffset" value="94"/>
+                                            <property name="orientation" value="0"/>
+                                            <property name="phase" value="in_progress"/>
+                                            <property name="position">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.618607"/>
+                                                    <property name="lon" value="-122.35664881597572"/>
+                                                </bean>
+                                            </property>
+                                            <property name="predicted" value="true"/>
+                                            <property name="scheduleDeviation" value="38"/>
+                                            <property name="scheduledDistanceAlongTrip" value="700.4055091938935"/>
+                                            <property name="serviceDate" value="1480147200000"/>
+                                            <property name="situationIds">
+                                                <list></list>
+                                            </property>
+                                            <property name="status" value="SCHEDULED"/>
+                                            <property name="totalDistanceAlongTrip" value="11479.998269691443"/>
+                                            <property name="vehicleId" value="1_8044"/>
+                                        </bean>
+                                    </property>
+                                    <property name="vehicleId" value="1_8044"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.ArrivalsAndDepartures">
+                                    <property name="arrivalEnabled" value="true"/>
+                                    <property name="blockTripSequence" value="5"/>
+                                    <property name="departureEnabled" value="true"/>
+                                    <property name="distanceFromStop" value="4215.766878244911"/>
+                                    <property name="lastUpdateTime" value="1480191472000"/>
+                                    <property name="numberOfStopsAway" value="14"/>
+                                    <property name="predicted" value="true"/>
+                                    <property name="predictedArrivalTime" value="1480193036000"/>
+                                    <property name="predictedDepartureTime" value="1480193036000"/>
+                                    <property name="routeId" value="1_100009"/>
+                                    <property name="routeLongName" value=""/>
+                                    <property name="routeShortName" value="11"/>
+                                    <property name="scheduledArrivalTime" value="1480192918000"/>
+                                    <property name="scheduledDepartureTime" value="1480192918000"/>
+                                    <property name="serviceDate" value="1480147200000"/>
+                                    <property name="situationIds">
+                                        <list></list>
+                                    </property>
+                                    <property name="status" value="default"/>
+                                    <property name="stopId" value="1_12378"/>
+                                    <property name="stopSequence" value="15"/>
+                                    <property name="totalStopsInTrip" value="28"/>
+                                    <property name="tripHeadsign" value="Madison Park Via E Madison St"/>
+                                    <property name="tripId" value="1_32104561"/>
+                                    <property name="tripStatus">
+                                        <bean class="com.btanabe.busnotifier.model.types.TripStatus">
+                                            <property name="activeTripId" value="1_32104561"/>
+                                            <property name="blockTripSequence" value="5"/>
+                                            <property name="closestStop" value="1_1085"/>
+                                            <property name="closestStopTimeOffset" value="-39"/>
+                                            <property name="distanceAlongTrip" value="93.57104355831689"/>
+                                            <property name="lastKnownDistanceAlongTrip" value="0"/>
+                                            <property name="lastKnownLocation">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.612876892089844"/>
+                                                    <property name="lon" value="-122.33360290527344"/>
+                                                </bean>
+                                            </property>
+                                            <property name="lastKnownOrientation" value="0"/>
+                                            <property name="lastLocationUpdateTime" value="1480191472000"/>
+                                            <property name="lastUpdateTime" value="1480191472000"/>
+                                            <property name="nextStop" value="1_1110"/>
+                                            <property name="nextStopTimeOffset" value="102"/>
+                                            <property name="orientation" value="203.2621465372274"/>
+                                            <property name="phase" value="in_progress"/>
+                                            <property name="position">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.61287038267988"/>
+                                                    <property name="lon" value="-122.33360599750938"/>
+                                                </bean>
+                                            </property>
+                                            <property name="predicted" value="true"/>
+                                            <property name="scheduleDeviation" value="118"/>
+                                            <property name="scheduledDistanceAlongTrip" value="93.57104355831689"/>
+                                            <property name="serviceDate" value="1480147200000"/>
+                                            <property name="situationIds">
+                                                <list></list>
+                                            </property>
+                                            <property name="status" value="SCHEDULED"/>
+                                            <property name="totalDistanceAlongTrip" value="7389.795619378667"/>
+                                            <property name="vehicleId" value="1_3652"/>
+                                        </bean>
+                                    </property>
+                                    <property name="vehicleId" value="1_3652"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.ArrivalsAndDepartures">
+                                    <property name="arrivalEnabled" value="true"/>
+                                    <property name="blockTripSequence" value="4"/>
+                                    <property name="departureEnabled" value="true"/>
+                                    <property name="distanceFromStop" value="5253.931705506046"/>
+                                    <property name="lastUpdateTime" value="0"/>
+                                    <property name="numberOfStopsAway" value="18"/>
+                                    <property name="predicted" value="false"/>
+                                    <property name="predictedArrivalTime" value="0"/>
+                                    <property name="predictedDepartureTime" value="0"/>
+                                    <property name="routeId" value="1_100275"/>
+                                    <property name="routeLongName" value=""/>
+                                    <property name="routeShortName" value="8"/>
+                                    <property name="scheduledArrivalTime" value="1480193499000"/>
+                                    <property name="scheduledDepartureTime" value="1480193499000"/>
+                                    <property name="serviceDate" value="1480147200000"/>
+                                    <property name="situationIds">
+                                        <list></list>
+                                    </property>
+                                    <property name="status" value="default"/>
+                                    <property name="stopId" value="1_12378"/>
+                                    <property name="stopSequence" value="18"/>
+                                    <property name="totalStopsInTrip" value="36"/>
+                                    <property name="tripHeadsign" value="Mount Baker Transit Center"/>
+                                    <property name="tripId" value="1_32105730"/>
+                                    <property name="tripStatus">
+                                        <bean class="com.btanabe.busnotifier.model.types.TripStatus">
+                                            <property name="activeTripId" value="1_32105789"/>
+                                            <property name="blockTripSequence" value="3"/>
+                                            <property name="closestStop" value="1_2370"/>
+                                            <property name="closestStopTimeOffset" value="-610"/>
+                                            <property name="distanceAlongTrip" value="0"/>
+                                            <property name="lastKnownDistanceAlongTrip" value="0"/>
+                                            <property name="lastKnownOrientation" value="0"/>
+                                            <property name="lastLocationUpdateTime" value="0"/>
+                                            <property name="lastUpdateTime" value="0"/>
+                                            <property name="nextStop" value="1_2672"/>
+                                            <property name="nextStopTimeOffset" value="663"/>
+                                            <property name="orientation" value="179.16623254526462"/>
+                                            <property name="phase" value=""/>
+                                            <property name="position">
+                                                <bean class="com.btanabe.busnotifier.model.types.Location">
+                                                    <property name="lat" value="47.624584"/>
+                                                    <property name="lon" value="-122.356552"/>
+                                                </bean>
+                                            </property>
+                                            <property name="predicted" value="false"/>
+                                            <property name="scheduleDeviation" value="0"/>
+                                            <property name="scheduledDistanceAlongTrip" value="11727.653287313049"/>
+                                            <property name="serviceDate" value="1480147200000"/>
+                                            <property name="situationIds">
+                                                <list></list>
+                                            </property>
+                                            <property name="status" value="default"/>
+                                            <property name="totalDistanceAlongTrip" value="11579.532343487906"/>
+                                            <property name="vehicleId" value=""/>
+                                        </bean>
+                                    </property>
+                                    <property name="vehicleId" value=""/>
+                                </bean>
+
+                            </list>
+                        </property>
+                    </bean>
+                </property>
+                <property name="references">
+                    <bean class="com.btanabe.busnotifier.model.types.ArrivalsAndDeparturesForStopDataReferences">
+                        <property name="agencies">
+                            <list>
+                                <bean class="com.btanabe.busnotifier.model.types.Agency">
+                                    <property name="disclaimer" value=""/>
+                                    <property name="email" value=""/>
+                                    <property name="fareUrl" value=""/>
+                                    <property name="id" value="1"/>
+                                    <property name="lang" value="EN"/>
+                                    <property name="name" value="Metro Transit"/>
+                                    <property name="phone" value="206-553-3000"/>
+                                    <property name="privateService" value="false"/>
+                                    <property name="timezone" value="America/Los_Angeles"/>
+                                    <property name="url" value="http://metro.kingcounty.gov"/>
+                                </bean>
+                            </list>
+                        </property>
+                        <property name="routes">
+                            <list>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100275"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="8"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="Seattle Center to Capitol Hill to Rainier Beach"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/008/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100009"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="11"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="Madison Park to Capitol Hill to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/011/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100279"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="84"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Downtown Seattle to Madison Park to Madrona"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/084/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100343"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="984"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Lakeside School to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/984/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100346"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="988"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Madrona to Lakeside School"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/988/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100002"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="10"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Capitol Hill - Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/010/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100223"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="43"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="U Dist - Montlake - Capitol Hill - Downtown"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/043/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100447"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="49"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="U Dist - Broadway - Downtown Sea"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/049/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100001"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="1"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Kinnear - Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/001/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100089"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="2"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="W QA - Downtown - Madrona Pk"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/002/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100028"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="13"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Seattle Pacific - Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/013/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100350"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="994"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Downtown Seattle to Lakeside School"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/994/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_102581"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="D Line"/>
+                                    <property name="longName" value="D-Line Rapid Ride"/>
+                                    <property name="description"
+                                              value="Seattle Blue Ridge to Crown Hill to Ballard to Sea"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url"
+                                              value="http://metro.kingcounty.gov/travel-options/bus/rapidride/d-line/"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100044"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="15"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Blue Ridge to Crown Hill to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/015/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100062"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="17"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="Loyal Heights to Sunset Hill to Ballard to Downtow"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/017/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100071"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="18"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="North Beach to Ballard to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/018/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100081"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="19"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Magnolia"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/019/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100132"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="24"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="West Magnolia to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/024/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100194"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="33"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Discovery Park to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/033/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100263"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="7"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Prentice St - Rainier Bch - Downtown Sea"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/007/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100227"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="47"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Summit - Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/047/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100045"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="150"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Kent Rail Sta/Southcenter/Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/150/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100108"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="216"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="Bear Creek P&amp;R to Sammamish to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/216/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100459"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="218"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description" value="Issaquah Hlnds Downtown"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/218/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100110"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="219"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="Redmond  Issaquah Highlands P&amp;R  Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/219/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_100193"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="32"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="U-District to Fremont to Interbay to Sea Center W"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/032/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_102572"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="29"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="Ballard to SPU to Queen Anne to Downtown Seattle"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/029/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Route">
+                                    <property name="id" value="1_102549"/>
+                                    <property name="agencyId" value="1"/>
+                                    <property name="shortName" value="980"/>
+                                    <property name="longName" value=""/>
+                                    <property name="description"
+                                              value="Madison Valley to Lakeside School"/>
+                                    <property name="type" value="3"/>
+                                    <property name="url" value="http://metro.kingcounty.gov/schedules/980/n0.html"/>
+                                    <property name="color" value=""/>
+                                    <property name="textColor" value=""/>
+                                </bean>
+                            </list>
+                        </property>
+                        <property name="situations">
+                            <list></list>
+                        </property>
+                        <property name="stops">
+                            <list>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_12378"/>
+                                    <property name="lat" value="47.621094"/>
+                                    <property name="lon" value="-122.299561"/>
+                                    <property name="direction" value="NE"/>
+                                    <property name="name" value="E Madison St &amp; 25th Ave E"/>
+                                    <property name="code" value="12378"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100275</value>
+                                            <value type="java.lang.String">1_100009</value>
+                                            <value type="java.lang.String">1_100279</value>
+                                            <value type="java.lang.String">1_100343</value>
+                                            <value type="java.lang.String">1_100346</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_29273"/>
+                                    <property name="lat" value="47.619892"/>
+                                    <property name="lon" value="-122.313042"/>
+                                    <property name="direction" value="E"/>
+                                    <property name="name" value="E John St &amp; 15th Ave E"/>
+                                    <property name="code" value="29273"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100275</value>
+                                            <value type="java.lang.String">1_100002</value>
+                                            <value type="java.lang.String">1_100223</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_11150"/>
+                                    <property name="lat" value="47.615162"/>
+                                    <property name="lon" value="-122.321617"/>
+                                    <property name="direction" value="E"/>
+                                    <property name="name" value="E Pine St &amp; Harvard Ave"/>
+                                    <property name="code" value="11150"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100009</value>
+                                            <value type="java.lang.String">1_100447</value>
+                                            <value type="java.lang.String">1_100279</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_11510"/>
+                                    <property name="lat" value="47.615181"/>
+                                    <property name="lon" value="-122.319092"/>
+                                    <property name="direction" value="E"/>
+                                    <property name="name" value="E Pine St &amp; 10th Ave"/>
+                                    <property name="code" value="11510"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100009</value>
+                                            <value type="java.lang.String">1_100279</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_2200"/>
+                                    <property name="lat" value="47.619213"/>
+                                    <property name="lon" value="-122.35685"/>
+                                    <property name="direction" value="S"/>
+                                    <property name="name" value="Queen Anne Ave N &amp; W John St"/>
+                                    <property name="code" value="2200"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100001</value>
+                                            <value type="java.lang.String">1_100089</value>
+                                            <value type="java.lang.String">1_100275</value>
+                                            <value type="java.lang.String">1_100028</value>
+                                            <value type="java.lang.String">1_100350</value>
+                                            <value type="java.lang.String">1_102581</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_2244"/>
+                                    <property name="lat" value="47.618515"/>
+                                    <property name="lon" value="-122.3517"/>
+                                    <property name="direction" value="E"/>
+                                    <property name="name" value="Denny Way &amp; 2nd Ave N"/>
+                                    <property name="code" value="2244"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100001</value>
+                                            <value type="java.lang.String">1_100089</value>
+                                            <value type="java.lang.String">1_100275</value>
+                                            <value type="java.lang.String">1_100028</value>
+                                            <value type="java.lang.String">1_100044</value>
+                                            <value type="java.lang.String">1_100062</value>
+                                            <value type="java.lang.String">1_100071</value>
+                                            <value type="java.lang.String">1_100081</value>
+                                            <value type="java.lang.String">1_100132</value>
+                                            <value type="java.lang.String">1_100194</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_1085"/>
+                                    <property name="lat" value="47.613377"/>
+                                    <property name="lon" value="-122.332603"/>
+                                    <property name="direction" value="SW"/>
+                                    <property name="name" value="Pine St &amp; 9th Ave"/>
+                                    <property name="code" value="1085"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100263</value>
+                                            <value type="java.lang.String">1_100002</value>
+                                            <value type="java.lang.String">1_100009</value>
+                                            <value type="java.lang.String">1_100223</value>
+                                            <value type="java.lang.String">1_100227</value>
+                                            <value type="java.lang.String">1_100447</value>
+                                            <value type="java.lang.String">1_100279</value>
+                                            <value type="java.lang.String">1_100045</value>
+                                            <value type="java.lang.String">1_100108</value>
+                                            <value type="java.lang.String">1_100459</value>
+                                            <value type="java.lang.String">1_100110</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_1110"/>
+                                    <property name="lat" value="47.611767"/>
+                                    <property name="lon" value="-122.336456"/>
+                                    <property name="direction" value="SW"/>
+                                    <property name="name" value="Pine St &amp; 5th Ave"/>
+                                    <property name="code" value="1110"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100263</value>
+                                            <value type="java.lang.String">1_100002</value>
+                                            <value type="java.lang.String">1_100009</value>
+                                            <value type="java.lang.String">1_100223</value>
+                                            <value type="java.lang.String">1_100227</value>
+                                            <value type="java.lang.String">1_100447</value>
+                                            <value type="java.lang.String">1_100279</value>
+                                            <value type="java.lang.String">1_100108</value>
+                                            <value type="java.lang.String">1_100459</value>
+                                            <value type="java.lang.String">1_100110</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_2370"/>
+                                    <property name="lat" value="47.624649"/>
+                                    <property name="lon" value="-122.356552"/>
+                                    <property name="direction" value="W"/>
+                                    <property name="name" value="Mercer St &amp; Queen Anne Ave N"/>
+                                    <property name="code" value="2370"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100001</value>
+                                            <value type="java.lang.String">1_100275</value>
+                                            <value type="java.lang.String">1_100193</value>
+                                            <value type="java.lang.String">1_100350</value>
+                                            <value type="java.lang.String">1_102581</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_2672"/>
+                                    <property name="lat" value="47.624306"/>
+                                    <property name="lon" value="-122.356819"/>
+                                    <property name="direction" value="S"/>
+                                    <property name="name" value="Queen Anne Ave N &amp; W Mercer St"/>
+                                    <property name="code" value="2672"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100001</value>
+                                            <value type="java.lang.String">1_100089</value>
+                                            <value type="java.lang.String">1_100275</value>
+                                            <value type="java.lang.String">1_100028</value>
+                                            <value type="java.lang.String">1_102572</value>
+                                            <value type="java.lang.String">1_100193</value>
+                                            <value type="java.lang.String">1_100350</value>
+                                            <value type="java.lang.String">1_102581</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Stop">
+                                    <property name="id" value="1_12340"/>
+                                    <property name="lat" value="47.620869"/>
+                                    <property name="lon" value="-122.300186"/>
+                                    <property name="direction" value="SW"/>
+                                    <property name="name" value="E Madison St &amp; 25th Ave E"/>
+                                    <property name="code" value="12340"/>
+                                    <property name="locationType" value="0"/>
+                                    <property name="routeIds">
+                                        <list>
+                                            <value type="java.lang.String">1_100275</value>
+                                            <value type="java.lang.String">1_100009</value>
+                                            <value type="java.lang.String">1_100279</value>
+                                            <value type="java.lang.String">1_102549</value>
+                                            <value type="java.lang.String">1_100346</value>
+                                        </list>
+                                    </property>
+                                    <property name="wheelchairBoarding" value="UNKNOWN"/>
+                                </bean>
+                            </list>
+                        </property>
+                        <property name="trips">
+                            <list>
+                                <bean class="com.btanabe.busnotifier.model.types.Trip">
+                                    <property name="id" value="1_32105728"/>
+                                    <property name="routeId" value="1_100275"/>
+                                    <property name="routeShortName" value=""/>
+                                    <property name="tripShortName" value="LOCAL"/>
+                                    <property name="tripHeadsign" value="Mount Baker Transit Center"/>
+                                    <property name="serviceId" value="1_18562"/>
+                                    <property name="shapeId" value="1_40008028"/>
+                                    <property name="timeZone" value=""/>
+                                    <property name="directionId" value="1"/>
+                                    <property name="blockId" value="1_4277311"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Trip">
+                                    <property name="id" value="1_32104874"/>
+                                    <property name="routeId" value="1_100009"/>
+                                    <property name="routeShortName" value=""/>
+                                    <property name="tripShortName" value="LOCAL"/>
+                                    <property name="tripHeadsign" value="Madison Park Via E Madison St"/>
+                                    <property name="serviceId" value="1_18562"/>
+                                    <property name="shapeId" value="1_11011051"/>
+                                    <property name="timeZone" value=""/>
+                                    <property name="directionId" value="0"/>
+                                    <property name="blockId" value="1_4277277"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Trip">
+                                    <property name="id" value="1_32105729"/>
+                                    <property name="routeId" value="1_100275"/>
+                                    <property name="routeShortName" value=""/>
+                                    <property name="tripShortName" value="LOCAL"/>
+                                    <property name="tripHeadsign" value="Mount Baker Transit Center"/>
+                                    <property name="serviceId" value="1_18562"/>
+                                    <property name="shapeId" value="1_40008029"/>
+                                    <property name="timeZone" value=""/>
+                                    <property name="directionId" value="1"/>
+                                    <property name="blockId" value="1_4277312"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Trip">
+                                    <property name="id" value="1_32104561"/>
+                                    <property name="routeId" value="1_100009"/>
+                                    <property name="routeShortName" value=""/>
+                                    <property name="tripShortName" value="LOCAL"/>
+                                    <property name="tripHeadsign" value="Madison Park Via E Madison St"/>
+                                    <property name="serviceId" value="1_18562"/>
+                                    <property name="shapeId" value="1_11011051"/>
+                                    <property name="timeZone" value=""/>
+                                    <property name="directionId" value="0"/>
+                                    <property name="blockId" value="1_4277273"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Trip">
+                                    <property name="id" value="1_32105730"/>
+                                    <property name="routeId" value="1_100275"/>
+                                    <property name="routeShortName" value=""/>
+                                    <property name="tripShortName" value="LOCAL"/>
+                                    <property name="tripHeadsign" value="Mount Baker Transit Center"/>
+                                    <property name="serviceId" value="1_18562"/>
+                                    <property name="shapeId" value="1_40008028"/>
+                                    <property name="timeZone" value=""/>
+                                    <property name="directionId" value="1"/>
+                                    <property name="blockId" value="1_4277315"/>
+                                </bean>
+                                <bean class="com.btanabe.busnotifier.model.types.Trip">
+                                    <property name="id" value="1_32105789"/>
+                                    <property name="routeId" value="1_100275"/>
+                                    <property name="routeShortName" value=""/>
+                                    <property name="tripShortName" value="LOCAL"/>
+                                    <property name="tripHeadsign" value="Seattle Center"/>
+                                    <property name="serviceId" value="1_18562"/>
+                                    <property name="shapeId" value="1_31008031"/>
+                                    <property name="timeZone" value=""/>
+                                    <property name="directionId" value="0"/>
+                                    <property name="blockId" value="1_4277315"/>
+                                </bean>
+                            </list>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>

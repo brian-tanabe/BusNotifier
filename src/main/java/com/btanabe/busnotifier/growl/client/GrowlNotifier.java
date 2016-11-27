@@ -12,8 +12,8 @@ import com.google.code.jgntp.GntpNotification;
 import com.google.code.jgntp.GntpNotificationInfo;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.Subscribe;
+import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -22,23 +22,23 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
  * Created by Brian on 11/19/16.
  */
 @Slf4j
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class GrowlNotifier {
 
     @NonNull
-    private AsyncEventBus eventBus;
+    private final AsyncEventBus eventBus;
 
     @NonNull
-    private GrowlNotificationInfoFactory notificationInfoFactory;
+    private final GrowlNotificationInfoFactory notificationInfoFactory;
 
     @NonNull
-    private GrowlApplicationInfoFactory applicationInfoFactory;
+    private final GrowlApplicationInfoFactory applicationInfoFactory;
 
     @NonNull
-    private GrowlNotificationFactory notificationFactory;
+    private final GrowlNotificationFactory notificationFactory;
 
     @NonNull
-    private GrowlClientFactory clientFactory;
+    private final GrowlClientFactory clientFactory;
 
     @Subscribe
     public void sendNotification(GrowlNotification growlNotification) throws Exception {
