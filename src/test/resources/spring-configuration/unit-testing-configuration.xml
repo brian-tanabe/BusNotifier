@@ -9,5 +9,6 @@
     <!-- Test specific configurations: -->
     <import resource="classpath*:/spring-configuration/response-configurations/one-bus-away-response-configuration.xml"/>
     <import resource="classpath*:/spring-configuration/model-configurations/one-bus-away-response-models.xml"/>
-    
+    <import resource="classpath*:/spring-configuration/test-web-requests.xml"/>
+
 </beans>

@@ -8,4 +8,8 @@
                   value="classpath:/test-responses/arrivals-and-departures-for-stop-1_12378.json"/>
     </bean>
 
+    <!--<bean id="stops-for-location-47.62-122.29" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">-->
+        <!--<property name="inputFile" value="classpath:/test-responses/stops-for-location-47.62-122.29.json"/>-->
+    <!--</bean>-->
+
 </beans>

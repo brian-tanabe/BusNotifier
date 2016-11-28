@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Brian on 11/26/16.
  */
-@ContextConfiguration("classpath:*spring-configuration/unit-testing-configuration.xml")
+@ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class JsonSerializerTests {
 
@@ -26,11 +26,11 @@ public class JsonSerializerTests {
 
     @Autowired
     @Qualifier("expectedArrivalsAndDeparturesForStop1_12378Model")
-    private ArrivalsAndDeparturesForStopModel expectedArrivalsAndDeparturesFOrStop1_1237;
+    private ArrivalsAndDeparturesForStopModel expectedArrivalsAndDeparturesForStop1_1237;
 
     @Test
     public void shouldBeAbleToDeserializeArrivalsAndDeparturesForStopModel() throws Exception {
         ArrivalsAndDeparturesForStopModel model = JsonSerializer.serializeResponse(arrivalsAndDeparturesForStop1_12378Response, ArrivalsAndDeparturesForStopModel.class);
-        assertThat(model, is(equalTo(expectedArrivalsAndDeparturesFOrStop1_1237)));
+        assertThat(model, is(equalTo(expectedArrivalsAndDeparturesForStop1_1237)));
     }
 }

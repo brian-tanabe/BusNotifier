@@ -1,8 +1,10 @@
 package com.bttanabe.busnotifier.test.unit.secrets;
 
-import com.btanabe.busnotifier.secrets.GoogleMapsKeyProvider;
+import com.btanabe.busnotifier.secrets.KeyProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,9 +18,12 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class GoogleMapsKeyProviderTests {
 
+    @Autowired
+    @Qualifier("googleMapsKeyProvider")
+    private KeyProvider keyProvider;
+
     @Test
     public void shouldBeAbleToDecodeTheApiKey() {
-        GoogleMapsKeyProvider keyProvider = new GoogleMapsKeyProvider();
         assertThat(keyProvider.getApiKey(), startsWith("AIzaSyDU"));
     }
 }
