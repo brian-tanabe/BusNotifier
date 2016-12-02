@@ -1,7 +1,6 @@
 package com.bttanabe.busnotifier.test.unit.secrets;
 
 import com.btanabe.busnotifier.secrets.KeyProvider;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -26,13 +23,8 @@ public class OneBusAwayKeyProviderTests {
     private KeyProvider keyProvider;
 
     @Test
-    @Ignore
     public void shouldBeAbleToDecodeTheApiKey() {
         assertThat(keyProvider.getApiKey(), startsWith("63cdecc4"));
     }
 
-    @Test
-    public void shouldBeAbleToDecodeTheTestApiKey() {
-        assertThat(keyProvider.getApiKey(), is(equalTo("TEST")));
-    }
 }

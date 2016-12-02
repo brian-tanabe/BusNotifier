@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by Brian on 11/26/16.
  */
 @Data
-public class ArrivalsAndDeparturesForStopDataReferences {
+public class References {
     private ArrayList<Agency> agencies;
     private ArrayList<Route> routes;
     private ArrayList<ServiceAlert> situations;

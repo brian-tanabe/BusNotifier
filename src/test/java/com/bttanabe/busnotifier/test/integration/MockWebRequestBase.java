@@ -1,6 +1,6 @@
 package com.bttanabe.busnotifier.test.integration;
 
-import com.btanabe.busnotifier.scheduleprovider.AbstractOneBusAwayApiInterface;
+import com.btanabe.busnotifier.tasks.WebRequest;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
@@ -15,13 +15,13 @@ import org.springframework.test.context.TestContextManager;
  * Created by Brian on 5/15/16.
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(AbstractOneBusAwayApiInterface.class)
+@PrepareForTest(WebRequest.class)
 @PowerMockIgnore("javax.management.*")
 @ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
-public abstract class MockWebRequestTaskBase {
+public abstract class MockWebRequestBase {
 
     @Autowired
-    @Qualifier("mockStaticWebRequestFactory")
+    @Qualifier("mockWebRequest")
     protected Object mockWebRequestCreation;
 
     private TestContextManager testContextManager;

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="kingCountyMetroAgency" class="com.btanabe.busnotifier.model.types.Agency">
+        <property name="disclaimer" value=""/>
+        <property name="email" value=""/>
+        <property name="fareUrl" value=""/>
+        <property name="id" value="1"/>
+        <property name="lang" value="EN"/>
+        <property name="name" value="Metro Transit"/>
+        <property name="phone" value="206-553-3000"/>
+        <property name="privateService" value="false"/>
+        <property name="timezone" value="America/Los_Angeles"/>
+        <property name="url" value="http://metro.kingcounty.gov"/>
+    </bean>
+
+</beans>

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <import resource="classpath:/spring-configuration/response-configurations/one-bus-away-response-configuration.xml"/>
 
+    <util:map id="urlMappedToPageContent" key-type="java.lang.String"
+              value-type="java.lang.String">
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key=TEST"
+               value-ref="arrivalsAndDeparturesForStop1_12378"/>
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key=TEST&amp;lat=47.6209859&amp;lon=-122.2998423"
+               value-ref="stops-for-location-47.62-122.29"/>
+    </util:map>
+
+    <bean id="mockWebRequest" class="com.bttanabe.busnotifier.test.factories.MockWebRequestFactory">
+        <constructor-arg name="urlMappedToPageContent" ref="urlMappedToPageContent"/>
+    </bean>
 </beans>

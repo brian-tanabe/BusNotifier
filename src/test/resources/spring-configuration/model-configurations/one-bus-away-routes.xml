@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="route8-SeattleCenterToCapitolHillToRanierBeach" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100275"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="8"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Seattle Center to Capitol Hill to Rainier Beach"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/008/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route11-MadisonParkToCapitolHillToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100009"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="11"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Madison Park to Capitol Hill to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/011/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route84-DowntownSeattleToMadisonParkToMadrona" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100279"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="84"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Downtown Seattle to Madison Park to Madrona"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/084/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route984-LakesideSchoolToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100343"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="984"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Lakeside School to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/984/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route988-MadronaToLakesideSchool" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100346"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="988"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Madrona to Lakeside School"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/988/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route10-CapitolHillDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100002"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="10"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Capitol Hill - Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/010/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route43-UDistMontlakeCapitolHillDowntown" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100223"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="43"/>
+        <property name="longName" value=""/>
+        <property name="description" value="U Dist - Montlake - Capitol Hill - Downtown"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/043/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route49-UDistBroadwayDowntownSea" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100447"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="49"/>
+        <property name="longName" value=""/>
+        <property name="description" value="U Dist - Broadway - Downtown Sea"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/049/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route1-KinnearDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100001"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="1"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Kinnear - Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/001/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route2-WQADowntownMadronaPk" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100089"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="2"/>
+        <property name="longName" value=""/>
+        <property name="description" value="W QA - Downtown - Madrona Pk"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/002/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route13-SeattlePacificDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100028"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="13"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Seattle Pacific - Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/013/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route994-DowntownSeattleToLakesideSchool" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100350"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="994"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Downtown Seattle to Lakeside School"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/994/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="routeDLine-SeattleBlueRidgeToCrownHillToBallardToSea" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_102581"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="D Line"/>
+        <property name="longName" value="D-Line Rapid Ride"/>
+        <property name="description"
+                  value="Seattle Blue Ridge to Crown Hill to Ballard to Sea"/>
+        <property name="type" value="3"/>
+        <property name="url"
+                  value="http://metro.kingcounty.gov/travel-options/bus/rapidride/d-line/"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route15-BlueRidgeToCrownHillToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100044"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="15"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Blue Ridge to Crown Hill to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/015/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route17-LoyalHeightsToSunsetHillToBallardToDowntow" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100062"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="17"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Loyal Heights to Sunset Hill to Ballard to Downtow"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/017/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route18-NorthBeachToBallardToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100071"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="18"/>
+        <property name="longName" value=""/>
+        <property name="description" value="North Beach to Ballard to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/018/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route19-Magnolia" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100081"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="19"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Magnolia"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/019/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route25-WestMagnoliaToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100132"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="24"/>
+        <property name="longName" value=""/>
+        <property name="description" value="West Magnolia to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/024/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route33-DiscoveryParkToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100194"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="33"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Discovery Park to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/033/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route7-PrenticeStRainierBchDowntownSea" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100263"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="7"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Prentice St - Rainier Bch - Downtown Sea"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/007/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route47-SummitDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100227"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="47"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Summit - Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/047/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route150-KentRailStaSouthcenterDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100045"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="150"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Kent Rail Sta/Southcenter/Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/150/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route216-BearCreekPAndRToSammamishToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100108"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="216"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Bear Creek P&amp;R to Sammamish to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/216/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route218-IssaquahHlndsDowntown" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100459"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="218"/>
+        <property name="longName" value=""/>
+        <property name="description" value="Issaquah Hlnds Downtown"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/218/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route219-RedmondIssaquahHighlandsPAndRDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100110"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="219"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Redmond  Issaquah Highlands P&amp;R  Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/219/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route32-UDistrictToFremontToInterbayToSeaCenterW" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100193"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="32"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="U-District to Fremont to Interbay to Sea Center W"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/032/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route29-BallardToSPUToQueenAnneToDowntownSeattle" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_102572"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="29"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Ballard to SPU to Queen Anne to Downtown Seattle"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/029/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route980-MadisonValleyToLakesideSchool" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_102549"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="980"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Madison Valley to Lakeside School"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/980/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+
+    <bean id="route48-MtBakerToUniversityDistrict" class="com.btanabe.busnotifier.model.types.Route">
+        <property name="id" value="1_100228"/>
+        <property name="agencyId" value="1"/>
+        <property name="shortName" value="48"/>
+        <property name="longName" value=""/>
+        <property name="description"
+                  value="Mt Baker to University District"/>
+        <property name="type" value="3"/>
+        <property name="url" value="http://metro.kingcounty.gov/schedules/048/n0.html"/>
+        <property name="color" value=""/>
+        <property name="textColor" value=""/>
+    </bean>
+</beans>

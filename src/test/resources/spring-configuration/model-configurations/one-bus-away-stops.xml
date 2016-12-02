@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="stop1_12322-EastMadisonStAnd28thAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="code" value="12322"/>
+        <property name="direction" value="SW"/>
+        <property name="id" value="1_12322"/>
+        <property name="lat" value="47.623165"/>
+        <property name="locationType" value="0"/>
+        <property name="lon" value="-122.296799"/>
+        <property name="name" value="E Madison St &amp; 28th Ave E"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100275</value>
+                <value>1_100009</value>
+                <value>1_100279</value>
+                <value>1_102549</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12378-EastMadisonStAnd25thAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12378"/>
+        <property name="lat" value="47.621094"/>
+        <property name="lon" value="-122.299561"/>
+        <property name="direction" value="NE"/>
+        <property name="name" value="E Madison St &amp; 25th Ave E"/>
+        <property name="code" value="12378"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100275</value>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100279</value>
+                <value type="java.lang.String">1_100343</value>
+                <value type="java.lang.String">1_100346</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29273-EastJohnStAnd15thAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29273"/>
+        <property name="lat" value="47.619892"/>
+        <property name="lon" value="-122.313042"/>
+        <property name="direction" value="E"/>
+        <property name="name" value="E John St &amp; 15th Ave E"/>
+        <property name="code" value="29273"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100275</value>
+                <value type="java.lang.String">1_100002</value>
+                <value type="java.lang.String">1_100223</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_11150-EastPineStAndHarvardAve" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_11150"/>
+        <property name="lat" value="47.615162"/>
+        <property name="lon" value="-122.321617"/>
+        <property name="direction" value="E"/>
+        <property name="name" value="E Pine St &amp; Harvard Ave"/>
+        <property name="code" value="11150"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100447</value>
+                <value type="java.lang.String">1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_11510-EastPineStAnd10Ave" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_11510"/>
+        <property name="lat" value="47.615181"/>
+        <property name="lon" value="-122.319092"/>
+        <property name="direction" value="E"/>
+        <property name="name" value="E Pine St &amp; 10th Ave"/>
+        <property name="code" value="11510"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_2200-QueenAnneAveNorthAndWestJohnSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_2200"/>
+        <property name="lat" value="47.619213"/>
+        <property name="lon" value="-122.35685"/>
+        <property name="direction" value="S"/>
+        <property name="name" value="Queen Anne Ave N &amp; W John St"/>
+        <property name="code" value="2200"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100001</value>
+                <value type="java.lang.String">1_100089</value>
+                <value type="java.lang.String">1_100275</value>
+                <value type="java.lang.String">1_100028</value>
+                <value type="java.lang.String">1_100350</value>
+                <value type="java.lang.String">1_102581</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_2244-DennyWayAnd2ndAveNorth" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_2244"/>
+        <property name="lat" value="47.618515"/>
+        <property name="lon" value="-122.3517"/>
+        <property name="direction" value="E"/>
+        <property name="name" value="Denny Way &amp; 2nd Ave N"/>
+        <property name="code" value="2244"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100001</value>
+                <value type="java.lang.String">1_100089</value>
+                <value type="java.lang.String">1_100275</value>
+                <value type="java.lang.String">1_100028</value>
+                <value type="java.lang.String">1_100044</value>
+                <value type="java.lang.String">1_100062</value>
+                <value type="java.lang.String">1_100071</value>
+                <value type="java.lang.String">1_100081</value>
+                <value type="java.lang.String">1_100132</value>
+                <value type="java.lang.String">1_100194</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_1085-PineStAnd9thAve" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_1085"/>
+        <property name="lat" value="47.613377"/>
+        <property name="lon" value="-122.332603"/>
+        <property name="direction" value="SW"/>
+        <property name="name" value="Pine St &amp; 9th Ave"/>
+        <property name="code" value="1085"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100263</value>
+                <value type="java.lang.String">1_100002</value>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100223</value>
+                <value type="java.lang.String">1_100227</value>
+                <value type="java.lang.String">1_100447</value>
+                <value type="java.lang.String">1_100279</value>
+                <value type="java.lang.String">1_100045</value>
+                <value type="java.lang.String">1_100108</value>
+                <value type="java.lang.String">1_100459</value>
+                <value type="java.lang.String">1_100110</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_1110-PIneStAnd5thAve" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_1110"/>
+        <property name="lat" value="47.611767"/>
+        <property name="lon" value="-122.336456"/>
+        <property name="direction" value="SW"/>
+        <property name="name" value="Pine St &amp; 5th Ave"/>
+        <property name="code" value="1110"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100263</value>
+                <value type="java.lang.String">1_100002</value>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100223</value>
+                <value type="java.lang.String">1_100227</value>
+                <value type="java.lang.String">1_100447</value>
+                <value type="java.lang.String">1_100279</value>
+                <value type="java.lang.String">1_100108</value>
+                <value type="java.lang.String">1_100459</value>
+                <value type="java.lang.String">1_100110</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_2370-MercerStAndQueenAnneAveNorth" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_2370"/>
+        <property name="lat" value="47.624649"/>
+        <property name="lon" value="-122.356552"/>
+        <property name="direction" value="W"/>
+        <property name="name" value="Mercer St &amp; Queen Anne Ave N"/>
+        <property name="code" value="2370"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100001</value>
+                <value type="java.lang.String">1_100275</value>
+                <value type="java.lang.String">1_100193</value>
+                <value type="java.lang.String">1_100350</value>
+                <value type="java.lang.String">1_102581</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_2672-QueenAnneAveNorthAndWestMercerSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_2672"/>
+        <property name="lat" value="47.624306"/>
+        <property name="lon" value="-122.356819"/>
+        <property name="direction" value="S"/>
+        <property name="name" value="Queen Anne Ave N &amp; W Mercer St"/>
+        <property name="code" value="2672"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100001</value>
+                <value type="java.lang.String">1_100089</value>
+                <value type="java.lang.String">1_100275</value>
+                <value type="java.lang.String">1_100028</value>
+                <value type="java.lang.String">1_102572</value>
+                <value type="java.lang.String">1_100193</value>
+                <value type="java.lang.String">1_100350</value>
+                <value type="java.lang.String">1_102581</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12340-EastMadisonStAnd25thAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12340"/>
+        <property name="lat" value="47.620869"/>
+        <property name="lon" value="-122.300186"/>
+        <property name="direction" value="SW"/>
+        <property name="name" value="E Madison St &amp; 25th Ave E"/>
+        <property name="code" value="12340"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100275</value>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100279</value>
+                <value type="java.lang.String">1_102549</value>
+                <value type="java.lang.String">1_100346</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12350-EastMadisonStAnd23rdAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12350"/>
+        <property name="lat" value="47.619286"/>
+        <property name="lon" value="-122.302536"/>
+        <property name="direction" value="SW"/>
+        <property name="name" value="E Madison St &amp; 23rd Ave E"/>
+        <property name="code" value="12350"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12351-EastMadisonStAnd22ndAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12351"/>
+        <property name="lat" value="47.618298"/>
+        <property name="lon" value="-122.303986"/>
+        <property name="direction" value="SW"/>
+        <property name="name" value="E Madison St &amp; 22nd Ave E"/>
+        <property name="code" value="12351"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12352-EastMadisonStAnd20thAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12352"/>
+        <property name="lat" value="47.617351"/>
+        <property name="lon" value="-122.306129"/>
+        <property name="direction" value="W"/>
+        <property name="name" value="E Madison St &amp; 20th Ave"/>
+        <property name="code" value="12352"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value type="java.lang.String">1_100009</value>
+                <value type="java.lang.String">1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12375-EastMadisonStAnd20thAve" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12375"/>
+        <property name="lat" value="47.617363"/>
+        <property name="lon" value="-122.305702"/>
+        <property name="direction" value="NE"/>
+        <property name="name" value="E Madison St &amp; 20th Ave"/>
+        <property name="code" value="12375"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100009</value>
+                <value>1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12376-EastMadisonStAnd22ndAve" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12376"/>
+        <property name="lat" value="47.618172"/>
+        <property name="lon" value="-122.303886"/>
+        <property name="direction" value="NE"/>
+        <property name="name" value="E Madison St &amp; 22nd Ave"/>
+        <property name="code" value="12376"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100009</value>
+                <value>1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12377-EastMadisonStAnd23rdAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12377"/>
+        <property name="lat" value="47.619259"/>
+        <property name="lon" value="-122.302277"/>
+        <property name="direction" value="NE"/>
+        <property name="name" value="E Madison St &amp; 23rd Ave E"/>
+        <property name="code" value="12377"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100009</value>
+                <value>1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12380-EastMadisonStAnd27thAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12380"/>
+        <property name="lat" value="47.62249"/>
+        <property name="lon" value="-122.297508"/>
+        <property name="direction" value="NE"/>
+        <property name="name" value="E Madison St &amp; 27th Ave E"/>
+        <property name="code" value="12380"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100275</value>
+                <value>1_100009</value>
+                <value>1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_12390-EastMadisonStAnd29thAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_12390"/>
+        <property name="lat" value="47.624065"/>
+        <property name="lon" value="-122.295189"/>
+        <property name="direction" value="NE"/>
+        <property name="name" value="E Madison St &amp; 29th Ave E"/>
+        <property name="code" value="12390"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100009</value>
+                <value>1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29255-23rdAveEastAndEastRoySt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29255"/>
+        <property name="lat" value="47.624985"/>
+        <property name="lon" value="-122.302521"/>
+        <property name="direction" value="S"/>
+        <property name="name" value="23rd Ave E &amp; E Roy St"/>
+        <property name="code" value="29255"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100223</value>
+                <value>1_100228</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29256-23rdAveEastAndEastRepublicanSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29256"/>
+        <property name="lat" value="47.622936"/>
+        <property name="lon" value="-122.302559"/>
+        <property name="direction" value="S"/>
+        <property name="name" value="23rd Ave E &amp; E Republican St"/>
+        <property name="code" value="29256"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100223</value>
+                <value>1_100228</value>
+                <value>1_100346</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29257-23rdAveEastAndEastThomasSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29257"/>
+        <property name="lat" value="47.621174"/>
+        <property name="lon" value="-122.302589"/>
+        <property name="direction" value="SW"/>
+        <property name="name" value="23rd Ave E &amp; E Thomas St"/>
+        <property name="code" value="29257"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100223</value>
+                <value>1_100228</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29258-EastJohnStAnd22ndAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29258"/>
+        <property name="lat" value="47.620277"/>
+        <property name="lon" value="-122.303993"/>
+        <property name="direction" value="W"/>
+        <property name="name" value="E John St &amp; 22nd Ave E"/>
+        <property name="code" value="29258"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100275</value>
+                <value>1_100223</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29276-EastJohnStAnd22ndAveEast" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29276"/>
+        <property name="lat" value="47.620144"/>
+        <property name="lon" value="-122.303177"/>
+        <property name="direction" value="E"/>
+        <property name="name" value="E John St &amp; 22nd Ave E"/>
+        <property name="code" value="29276"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100275</value>
+                <value>1_100223</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29278-23rdAveEastAndEastRepublicanSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29278"/>
+        <property name="lat" value="47.623379"/>
+        <property name="lon" value="-122.302361"/>
+        <property name="direction" value="N"/>
+        <property name="name" value="23rd Ave E &amp; E Republican St"/>
+        <property name="code" value="29278"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100223</value>
+                <value>1_100228</value>
+                <value>1_102549</value>
+                <value>1_100346</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_29279-23rdAveEastAndEastRoySt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_29279"/>
+        <property name="lat" value="47.625336"/>
+        <property name="lon" value="-122.302315"/>
+        <property name="direction" value="N"/>
+        <property name="name" value="23rd Ave E &amp; E Roy St"/>
+        <property name="code" value="29279"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100223</value>
+                <value>1_100228</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_35825-23rdAveEastAndEastJohnSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_35825"/>
+        <property name="lat" value="47.620602"/>
+        <property name="lon" value="-122.302399"/>
+        <property name="direction" value="N"/>
+        <property name="name" value="23rd Ave E &amp; E John St"/>
+        <property name="code" value="35825"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100223</value>
+                <value>1_100228</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_43706-MartinLKingJrWayEastAndEastJohnSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_43706"/>
+        <property name="lat" value="47.620022"/>
+        <property name="lon" value="-122.296196"/>
+        <property name="direction" value="S"/>
+        <property name="name" value="Martin L King Jr Way E &amp; E John St"/>
+        <property name="code" value="43706"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100275</value>
+                <value>1_100279</value>
+                <value>1_100343</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_43788-MartinLKingJrWayAndEastOliveSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_43788"/>
+        <property name="lat" value="47.616684"/>
+        <property name="lon" value="-122.296059"/>
+        <property name="direction" value="N"/>
+        <property name="name" value="Martin L King Jr Way &amp; E Olive St"/>
+        <property name="code" value="43788"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100275</value>
+                <value>1_100279</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+    <bean id="stop1_43792-MartinLKingJrWayEastAndEastJohnSt" class="com.btanabe.busnotifier.model.types.Stop">
+        <property name="id" value="1_43792"/>
+        <property name="lat" value="47.620106"/>
+        <property name="lon" value="-122.29599"/>
+        <property name="direction" value="N"/>
+        <property name="name" value="Martin L King Jr Way E &amp; E John St"/>
+        <property name="code" value="43792"/>
+        <property name="locationType" value="0"/>
+        <property name="routeIds">
+            <list>
+                <value>1_100275</value>
+                <value>1_100279</value>
+                <value>1_102549</value>
+            </list>
+        </property>
+        <property name="wheelchairBoarding" value="UNKNOWN"/>
+    </bean>
+
+</beans>

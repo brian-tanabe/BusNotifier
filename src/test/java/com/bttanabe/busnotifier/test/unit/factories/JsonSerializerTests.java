@@ -2,6 +2,7 @@ package com.bttanabe.busnotifier.test.unit.factories;
 
 import com.btanabe.busnotifier.factories.JsonSerializer;
 import com.btanabe.busnotifier.model.ArrivalsAndDeparturesForStopModel;
+import com.btanabe.busnotifier.model.StopsForLocation;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,23 @@ public class JsonSerializerTests {
     @Qualifier("expectedArrivalsAndDeparturesForStop1_12378Model")
     private ArrivalsAndDeparturesForStopModel expectedArrivalsAndDeparturesForStop1_1237;
 
+    @Autowired
+    @Qualifier("stops-for-location-47.62-122.29")
+    private String stopsForLocationResponse;
+
+    @Autowired
+    @Qualifier("expectedStopsForLocationModel")
+    private StopsForLocation expectedStopsForLocation;
+
     @Test
     public void shouldBeAbleToDeserializeArrivalsAndDeparturesForStopModel() throws Exception {
         ArrivalsAndDeparturesForStopModel model = JsonSerializer.serializeResponse(arrivalsAndDeparturesForStop1_12378Response, ArrivalsAndDeparturesForStopModel.class);
         assertThat(model, is(equalTo(expectedArrivalsAndDeparturesForStop1_1237)));
+    }
+
+    @Test
+    public void shouldBeAbleToDeserializeStopsForLocationModel() throws Exception {
+        StopsForLocation model = JsonSerializer.serializeResponse(stopsForLocationResponse, StopsForLocation.class);
+        assertThat(model, is(equalTo(expectedStopsForLocation)));
     }
 }

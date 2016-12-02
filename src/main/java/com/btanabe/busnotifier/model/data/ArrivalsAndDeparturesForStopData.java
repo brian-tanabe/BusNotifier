@@ -1,7 +1,7 @@
 package com.btanabe.busnotifier.model.data;
 
 import com.btanabe.busnotifier.model.types.ArrivalsAndDeparturesForStopDataEntry;
-import com.btanabe.busnotifier.model.types.ArrivalsAndDeparturesForStopDataReferences;
+import com.btanabe.busnotifier.model.types.References;
 import lombok.Data;
 
 /**
@@ -10,5 +10,5 @@ import lombok.Data;
 @Data
 public class ArrivalsAndDeparturesForStopData {
     private ArrivalsAndDeparturesForStopDataEntry entry;
-    private ArrivalsAndDeparturesForStopDataReferences references;
+    private References references;
 }
