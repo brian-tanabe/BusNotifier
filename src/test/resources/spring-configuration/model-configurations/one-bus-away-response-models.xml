@@ -501,7 +501,7 @@
     <!-- http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key={{{API-KEY}}}&lat=47.6209859&lon=-122.2998423 -->
     <bean id="expectedStopsForLocationModel" class="com.btanabe.busnotifier.model.StopsForLocation">
         <property name="code" value="200"/>
-        <property name="currentTime" value="1480619151516"/>
+        <property name="currentTime" value="1480202729862"/>
         <property name="text" value="OK"/>
         <property name="version" value="2"/>
         <property name="data">
