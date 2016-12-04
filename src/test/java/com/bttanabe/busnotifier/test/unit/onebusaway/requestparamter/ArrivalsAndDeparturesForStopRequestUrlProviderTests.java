@@ -30,4 +30,9 @@ public class ArrivalsAndDeparturesForStopRequestUrlProviderTests {
         ArrivalsAndDeparturesForStopRequestUrlProvider provider = new ArrivalsAndDeparturesForStopRequestUrlProvider(TEST_STOP_ID);
         assertThat(provider.getRequestUrl(testKeyProvider), is(equalTo("http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key=TEST")));
     }
+
+    @Test(expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionWhenKeyProviderIsNull() {
+        new ArrivalsAndDeparturesForStopRequestUrlProvider(TEST_STOP_ID).getRequestUrl(null);
+    }
 }

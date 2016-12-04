@@ -15,7 +15,7 @@ public class ArrivalsAndDeparturesForStopRequestUrlProvider implements OneBusAwa
     private final String stopId;
 
     @Override
-    public String getRequestUrl(KeyProvider keyProvider) {
-        return String.format("%s/%s/%s.json?key=%s", URL_PREFIX, API_NAME, stopId, keyProvider.getApiKey());
+    public String getRequestUrl(@NonNull KeyProvider keyProvider) {
+        return String.format("%s/%s/%s.%s?key=%s", URL_PREFIX, API_NAME, stopId, RESPONSE_FORMAT, keyProvider.getApiKey());
     }
 }
