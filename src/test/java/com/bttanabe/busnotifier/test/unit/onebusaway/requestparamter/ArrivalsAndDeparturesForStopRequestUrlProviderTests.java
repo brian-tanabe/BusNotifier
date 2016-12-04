@@ -1,5 +1,6 @@
-package com.bttanabe.busnotifier.test.unit.secrets;
+package com.bttanabe.busnotifier.test.unit.onebusaway.requestparamter;
 
+import com.btanabe.busnotifier.onebusaway.requestparamter.ArrivalsAndDeparturesForStopRequestUrlProvider;
 import com.btanabe.busnotifier.secrets.KeyProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,32 +11,23 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.startsWith;
 import static org.junit.Assert.assertThat;
 
-
 /**
- * Created by Brian on 11/20/16.
+ * Created by Brian on 12/2/16.
  */
 @ContextConfiguration("classpath*:spring-configuration/unit-testing-configuration.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
-public class OneBusAwayKeyProviderTests {
-
-    @Autowired
-    @Qualifier("oneBusAwayKeyProvider")
-    private KeyProvider keyProvider;
+public class ArrivalsAndDeparturesForStopRequestUrlProviderTests {
+    private final String TEST_STOP_ID = "1_12340";
 
     @Autowired
     @Qualifier("testOneBusAwayKeyProvider")
     private KeyProvider testKeyProvider;
 
     @Test
-    public void shouldBeAbleToDecodeTheApiKey() {
-        assertThat(keyProvider.getApiKey(), startsWith("63cdecc4"));
-    }
-
-    @Test
-    public void shouldBeAbleToDecodeTheTestApiKey() {
-        assertThat(testKeyProvider.getApiKey(), is(equalTo("TEST")));
+    public void shouldBeAbleToConstructWellFormattedRequestUrl() {
+        ArrivalsAndDeparturesForStopRequestUrlProvider provider = new ArrivalsAndDeparturesForStopRequestUrlProvider(TEST_STOP_ID);
+        assertThat(provider.getRequestUrl(testKeyProvider), is(equalTo("http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key=TEST")));
     }
 }

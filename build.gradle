@@ -9,6 +9,7 @@ version = '1.0'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -37,7 +38,6 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.4'
     compile 'org.apache.httpcomponents:httpclient:4.5.2'
 
-    // compile 'com.google.code.gson:gson:2.7'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
 
     compile 'com.google.code.jgntp:jgntp:1.2.1'
@@ -49,11 +49,8 @@ dependencies {
     /**
      * Test dependencies:
      */
-    testCompile 'org.mockito:mockito-all:2.0.2-beta'
-
-    testCompile 'org.hamcrest:hamcrest-all:1.3'
-    testCompile 'org.hamcrest:hamcrest-library:1.3'
-    testCompile 'org.hamcrest:hamcrest-core:1.3'
+    testCompile 'org.hamcrest:hamcrest-library:1.4-atlassian-1'
+    testCompile 'org.hamcrest:hamcrest-core:1.4-atlassian-1'
 
     testCompile 'org.powermock:powermock-junit4-rule-objenesis-test:1.5.2'
     testCompile 'org.powermock:powermock-mockito-release-full:1.6.4'

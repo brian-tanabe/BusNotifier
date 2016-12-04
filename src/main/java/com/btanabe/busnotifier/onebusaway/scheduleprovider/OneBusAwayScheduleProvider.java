@@ -1,4 +1,4 @@
-package com.btanabe.busnotifier.scheduleprovider;
+package com.btanabe.busnotifier.onebusaway.scheduleprovider;
 
 /**
  * Created by Brian on 11/19/16.

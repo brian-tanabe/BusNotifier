@@ -6,9 +6,10 @@ import org.junit.Test;
 
 import java.util.Set;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
@@ -31,6 +32,6 @@ public class WebRequestTests extends MockWebRequestBase {
 
     @Test
     public void shouldHaveMoreTheOneTestPageReady() {
-        assertThat(((Set<String>) mockWebRequestCreation).size(), is(greaterThan(0)));
+        assertThat(((Set<String>) mockWebRequestCreation).size(), is(not(equalTo(0))));
     }
 }
