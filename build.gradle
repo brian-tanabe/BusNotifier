@@ -9,19 +9,25 @@ version = '1.0'
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
     compile 'org.projectlombok:lombok:1.16.4'
     compile 'com.google.guava:guava:20.0'
+
+    /**
+     * Provides retry behavior:
+     * https://github.com/rholder/guava-retrying
+     */
+    compile 'com.github.rholder:guava-retrying:2.0.0'
+
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'commons-io:commons-io:2.4'
 
     compile 'org.springframework:spring-core:4.2.5.RELEASE'
     compile 'org.springframework:spring-context:4.2.5.RELEASE'
     compile 'org.springframework:spring-test:4.2.5.RELEASE'
-    compile 'org.springframework:spring-web:4.2.5.RELEASE'
+    compile 'org.springframework:spring-tasks:4.2.5.RELEASE'
 
     // compile 'net.sf.jtidy:jtidy:r938'
     // compile 'org.jsoup:jsoup:1.8.3'

@@ -1,4 +1,4 @@
-package com.bttanabe.busnotifier.test.unit.web;
+package com.bttanabe.busnotifier.test.unit.tasks;
 
 import com.btanabe.busnotifier.tasks.WebRequest;
 import com.bttanabe.busnotifier.test.integration.MockWebRequestBase;

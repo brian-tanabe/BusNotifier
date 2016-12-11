@@ -11,6 +11,8 @@
     <import resource="classpath*:/spring-configuration/model-configurations/one-bus-away-response-models.xml"/>
     <import resource="classpath*:/spring-configuration/test-web-requests.xml"/>
     <import resource="classpath*:/spring-configuration/common/test-secrets-configuration.xml"/>
-    <import resource="classpath*:/spring-configuration/activity-configurations/test-activity-configurations.xml"/>
+    <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-activity-configurations.xml"/>
+    <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-api-interface-configurations.xml"/>
+    <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-retry-strategy-configurations.xml"/>
 
 </beans>

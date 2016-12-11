@@ -3,13 +3,34 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- valid response URLs -->
     <bean id="arrivalsAndDeparturesForStop1_12378" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
         <property name="inputFile"
                   value="classpath:/test-responses/arrivals-and-departures-for-stop-1_12378.json"/>
     </bean>
 
-    <bean id="stops-for-location-47.62-122.29" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+    <bean id="stopForLocation-47.62-122.29" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
         <property name="inputFile" value="classpath:/test-responses/stops-for-location-47.62-122.29.json"/>
     </bean>
 
+    <!-- Error handling URLs -->
+    <bean id="400-response" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-responses/400-response.json"/>
+    </bean>
+
+    <bean id="401-response" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-responses/401-response.json"/>
+    </bean>
+
+    <bean id="404-response" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-responses/404-response.json"/>
+    </bean>
+
+    <bean id="429-response" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-responses/429-response.json"/>
+    </bean>
+
+    <bean id="500-response" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-responses/500-response.json"/>
+    </bean>
 </beans>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="oneBusAwayRetryStrategy" class="com.btanabe.busnotifier.factories.OneBusAwayRetryStrategyFactory">
+        <property name="baseMultiplier" value="50"/>
+        <property name="totalAttemptCount" value="10"/>
+        <property name="totalRequestTimeoutInSeconds" value="30"/>
+        <property name="retryListener">
+            <bean class="com.btanabe.busnotifier.listeners.LoggingRetryListener"/>
+        </property>
+    </bean>
+
+</beans>

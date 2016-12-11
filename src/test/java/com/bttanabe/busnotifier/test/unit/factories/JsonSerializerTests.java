@@ -30,7 +30,7 @@ public class JsonSerializerTests {
     private ArrivalsAndDeparturesForStopModel expectedArrivalsAndDeparturesForStop1_1237;
 
     @Autowired
-    @Qualifier("stops-for-location-47.62-122.29")
+    @Qualifier("stopForLocation-47.62-122.29")
     private String stopsForLocationResponse;
 
     @Autowired

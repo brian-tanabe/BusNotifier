@@ -4,10 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="classpath*:/spring-configuration/common/test-secrets-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-retry-strategy-configurations.xml"/>
 
-    <bean id="testArrivalsAndDeparturesForStopActivity"
-          class="com.btanabe.busnotifier.onebusaway.scheduleprovider.ArrivalsAndDeparturesForStopActivity">
-        <constructor-arg name="keyProvider" ref="testOneBusAwayKeyProvider"/>
+    <bean id="testOneBusAwayApiInterface" class="com.btanabe.busnotifier.onebusaway.call.OneBusAwayApiInterface">
+        <constructor-arg ref="testOneBusAwayKeyProvider"/>
+        <constructor-arg ref="testRetryStrategy"/>
     </bean>
 
 </beans>
