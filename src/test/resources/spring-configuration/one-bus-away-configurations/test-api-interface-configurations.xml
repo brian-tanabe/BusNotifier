@@ -6,7 +6,8 @@
     <import resource="classpath*:/spring-configuration/common/test-secrets-configuration.xml"/>
     <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-retry-strategy-configurations.xml"/>
 
-    <bean id="testOneBusAwayApiInterface" class="com.btanabe.busnotifier.onebusaway.call.OneBusAwayApiInterface">
+    <bean id="testOneBusAwayApiInterface"
+          class="com.bttanabe.busnotifier.test.utilities.TestableOneBusAwayApiInterface">
         <constructor-arg ref="testOneBusAwayKeyProvider"/>
         <constructor-arg ref="testRetryStrategy"/>
     </bean>

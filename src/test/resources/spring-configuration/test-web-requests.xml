@@ -9,25 +9,25 @@
 
     <util:map id="urlMappedToPageContent" key-type="java.lang.String"
               value-type="java.lang.String">
-        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key=TEST"
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key=TEST&amp;minutesBefore=0"
                value-ref="arrivalsAndDeparturesForStop1_12378"/>
         <entry key="http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key=TEST&amp;lat=47.6209859&amp;lon=-122.2998423"
                value-ref="stopForLocation-47.62-122.29"/>
 
-        <!-- Fake erorr handling test URLs: -->
-        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/invalid-request-me.json?key=TEST"
+        <!-- Fake error handling test URLs: -->
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/invalid-request-me.json?key=TEST&amp;minutesBefore=0"
                value-ref="400-response"/>
 
-        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/unauthorize-me.json?key=TEST"
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/unauthorize-me.json?key=TEST&amp;minutesBefore=0"
                value-ref="401-response"/>
 
-        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/resource-not-found-me.json?key=TEST"
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/resource-not-found-me.json?key=TEST&amp;minutesBefore=0"
                value-ref="404-response"/>
 
-        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/throttle-me.json?key=TEST"
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/throttle-me.json?key=TEST&amp;minutesBefore=0"
                value-ref="429-response"/>
 
-        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/server-error-me.json?key=TEST"
+        <entry key="http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/server-error-me.json?key=TEST&amp;minutesBefore=0"
                value-ref="500-response"/>
     </util:map>
 

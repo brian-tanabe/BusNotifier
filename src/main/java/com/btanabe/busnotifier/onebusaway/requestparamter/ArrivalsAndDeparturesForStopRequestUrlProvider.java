@@ -16,7 +16,7 @@ public class ArrivalsAndDeparturesForStopRequestUrlProvider extends OneBusAwayRe
 
     @Override
     public String getRequestUrl(@NonNull KeyProvider keyProvider) {
-        String url = String.format("%s/%s/%s.%s?key=%s", URL_PREFIX, API_NAME, stopId, RESPONSE_FORMAT, keyProvider.getApiKey());
+        String url = String.format("%s/%s/%s.%s?key=%s&minutesBefore=0", URL_PREFIX, API_NAME, stopId, RESPONSE_FORMAT, keyProvider.getApiKey());
         return validateInputParameters(url);
     }
 }

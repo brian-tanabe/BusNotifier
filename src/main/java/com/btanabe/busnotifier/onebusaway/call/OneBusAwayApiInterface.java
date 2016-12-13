@@ -26,7 +26,7 @@ public class OneBusAwayApiInterface<ApiOutputType extends Model> {
     @NonNull
     private final Retryer<ApiOutputType> retryer;
 
-    public Model makeApiCall(OneBusAwayRequestUrlProvider urlProvider, Class<ApiOutputType> outputClassType) throws Throwable {
+    protected Model makeApiCall(OneBusAwayRequestUrlProvider urlProvider, Class<ApiOutputType> outputClassType) throws Throwable {
         try {
             return retryer.call(new OneBusAwayWebTask(keyProvider, urlProvider, outputClassType));
         } catch (RetryException e) {

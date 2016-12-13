@@ -28,7 +28,7 @@ public class ArrivalsAndDeparturesForStopRequestUrlProviderTests {
     @Test
     public void shouldBeAbleToConstructWellFormattedRequestUrl() {
         ArrivalsAndDeparturesForStopRequestUrlProvider provider = new ArrivalsAndDeparturesForStopRequestUrlProvider(TEST_STOP_ID);
-        assertThat(provider.getRequestUrl(testKeyProvider), is(equalTo("http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key=TEST")));
+        assertThat(provider.getRequestUrl(testKeyProvider), is(equalTo("http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key=TEST&minutesBefore=0")));
     }
 
     @Test(expected = NullPointerException.class)
