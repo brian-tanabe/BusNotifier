@@ -1,9 +1,9 @@
 package com.btanabe.busnotifier.notifiers;
 
-import com.btanabe.busnotifier.growl.factories.GrowlApplicationInfoFactory;
-import com.btanabe.busnotifier.growl.factories.GrowlClientFactory;
-import com.btanabe.busnotifier.growl.factories.GrowlNotificationFactory;
-import com.btanabe.busnotifier.growl.factories.GrowlNotificationInfoFactory;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlApplicationInfoFactory;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlClientFactory;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationFactory;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationInfoFactory;
 import com.btanabe.busnotifier.message.internal.BusArrivalMessage;
 import com.btanabe.busnotifier.utilities.TimeHelper;
 import com.google.code.jgntp.GntpApplicationInfo;

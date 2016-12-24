@@ -1,6 +1,6 @@
 package com.bttanabe.busnotifier.test.unit.factories;
 
-import com.btanabe.busnotifier.growl.factories.GrowlClientFactory;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlClientFactory;
 import com.btanabe.busnotifier.message.internal.AcknowledgedMessage;
 import com.btanabe.busnotifier.message.internal.BusArrivalMessage;
 import com.btanabe.busnotifier.notifiers.GrowlNotifier;

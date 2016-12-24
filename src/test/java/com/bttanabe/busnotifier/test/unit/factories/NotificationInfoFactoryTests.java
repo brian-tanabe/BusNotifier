@@ -1,7 +1,7 @@
 package com.bttanabe.busnotifier.test.unit.factories;
 
-import com.btanabe.busnotifier.growl.factories.GrowlApplicationInfoFactory;
-import com.btanabe.busnotifier.growl.factories.GrowlNotificationInfoFactory;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlApplicationInfoFactory;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationInfoFactory;
 import com.google.code.jgntp.GntpApplicationInfo;
 import com.google.code.jgntp.GntpNotificationInfo;
 import org.junit.BeforeClass;

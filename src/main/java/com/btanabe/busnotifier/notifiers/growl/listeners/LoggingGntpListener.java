@@ -1,4 +1,4 @@
-package com.btanabe.busnotifier.growl.listeners;
+package com.btanabe.busnotifier.notifiers.growl.listeners;
 
 import com.google.code.jgntp.GntpErrorStatus;
 import com.google.code.jgntp.GntpListener;

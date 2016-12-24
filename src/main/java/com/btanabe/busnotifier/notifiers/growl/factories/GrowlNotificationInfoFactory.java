@@ -1,4 +1,4 @@
-package com.btanabe.busnotifier.growl.factories;
+package com.btanabe.busnotifier.notifiers.growl.factories;
 
 import com.google.code.jgntp.Gntp;
 import com.google.code.jgntp.GntpApplicationInfo;

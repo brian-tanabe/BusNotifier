@@ -3,6 +3,6 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="loggingGntpListener" class="com.btanabe.busnotifier.growl.listeners.LoggingGntpListener"/>
+    <bean id="loggingGntpListener" class="com.btanabe.busnotifier.notifiers.growl.listeners.LoggingGntpListener"/>
 
 </beans>
