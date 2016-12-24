@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="test" class="com.btanabe.busnotifier.message.internal.BusArrivalMessage">
+        <constructor-arg name="stopLocation" value="E Madison St &amp; 25th Ave E" />
+        <constructor-arg name="expectedArrivalTime" value=""/>
+        <constructor-arg name="routeName" value="11"/>
+    </bean>
+</beans>

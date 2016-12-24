@@ -36,12 +36,12 @@ public class GrowlClientFactory {
     }
 
     private void logPreClientConstruction(GntpApplicationInfo applicationInfo) {
-        log.info("About to register GNTP client");
-        log.info(String.format("applicationInfo name=[%s]", applicationInfo.getName()));
-        log.info(String.format("applicationInfo: notificationInfos=%s", applicationInfo.getNotificationInfos()));
-        log.info(String.format("host=[%s]", host));
-        log.info(String.format("port=[%s]", port));
-        log.info(String.format("listener=[%s]", listener.getClass().getName()));
+        log.info(String.format("Creating GntpClient: applicationInfo.name=[%s], applicationInfo.notificationInfos=%s, host=[%s], port=[%s], listener=[%s]",
+                applicationInfo.getName(),
+                applicationInfo.getNotificationInfos(),
+                host,
+                port,
+                listener.getClass().getName()));
     }
 
     private void logPostClientConstruction(GntpClient client) {

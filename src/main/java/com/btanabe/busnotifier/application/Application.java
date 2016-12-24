@@ -1,12 +1,12 @@
 package com.btanabe.busnotifier.application;
 
-import com.btanabe.busnotifier.growl.client.GrowlNotifier;
+import com.btanabe.busnotifier.notifiers.GrowlNotifier;
 import com.btanabe.busnotifier.growl.factories.GrowlApplicationInfoFactory;
 import com.btanabe.busnotifier.growl.factories.GrowlClientFactory;
 import com.btanabe.busnotifier.growl.factories.GrowlNotificationFactory;
 import com.btanabe.busnotifier.growl.factories.GrowlNotificationInfoFactory;
-import com.btanabe.busnotifier.message.GrowlNotification;
-import com.btanabe.busnotifier.message.ShutdownSignal;
+import com.btanabe.busnotifier.message.external.GrowlNotification;
+import com.btanabe.busnotifier.message.internal.ShutdownSignal;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.Subscribe;
 import lombok.extern.slf4j.Slf4j;

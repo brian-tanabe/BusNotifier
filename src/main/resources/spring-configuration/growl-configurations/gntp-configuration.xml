@@ -25,12 +25,12 @@
         <constructor-arg name="listener" ref="loggingGntpListener"/>
     </bean>
 
-    <bean id="growlNotifier" class="com.btanabe.busnotifier.growl.client.GrowlNotifier">
-        <constructor-arg name="eventBus" ref="notificationEventBus"/>
+    <bean id="growlNotifier" class="com.btanabe.busnotifier.notifiers.GrowlNotifier">
         <constructor-arg name="applicationInfoFactory" ref="growlApplicationInfoFactory"/>
         <constructor-arg name="notificationFactory" ref="growlNotificationFactory"/>
         <constructor-arg name="notificationInfoFactory" ref="growlNotificationInfoFactory"/>
         <constructor-arg name="clientFactory" ref="growlClientFactory"/>
+        <constructor-arg name="eventBus" ref="notificationEventBus"/>
     </bean>
 
 </beans>

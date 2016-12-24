@@ -6,14 +6,15 @@ import java.util.Comparator;
 
 /**
  * Created by Brian on 12/12/16.
+ * <p>
  */
 public class ArrivalsAndDeparturesComparator implements Comparator<ArrivalsAndDepartures> {
 
     @Override
     public int compare(ArrivalsAndDepartures lhs, ArrivalsAndDepartures rhs) {
 
-        Long lhsDepartureTime = lhs.getPredictedDepartureTime() == 0L ? lhs.getScheduledDepartureTime() : lhs.getPredictedDepartureTime();
-        Long rhsDepartureTime = rhs.getPredictedDepartureTime() == 0L ? rhs.getScheduledDepartureTime() : rhs.getPredictedDepartureTime();
+        Long lhsDepartureTime = DepartureTimeHelper.getDepartureTime(lhs);
+        Long rhsDepartureTime = DepartureTimeHelper.getDepartureTime(rhs);
 
         return lhsDepartureTime.compareTo(rhsDepartureTime);
     }

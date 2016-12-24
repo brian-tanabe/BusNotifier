@@ -1,4 +1,4 @@
-package com.btanabe.busnotifier.message;
+package com.btanabe.busnotifier.configuration;
 
 import lombok.Getter;
 import lombok.NonNull;
@@ -16,4 +16,7 @@ public class RouteAtStopToMonitor {
 
     @NonNull
     private final String stopId;
+
+    @NonNull
+    private final String stopName;
 }

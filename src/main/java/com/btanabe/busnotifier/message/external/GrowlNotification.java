@@ -1,4 +1,4 @@
-package com.btanabe.busnotifier.message;
+package com.btanabe.busnotifier.message.external;
 
 import lombok.AllArgsConstructor;
 import lombok.ToString;
@@ -10,7 +10,7 @@ import java.awt.*;
  */
 @ToString
 @AllArgsConstructor
-public class GrowlNotification implements Notification {
+public class GrowlNotification implements ExternalNotification {
     private String notificationName;
     private String notificationTitle;
     private String notificationText;
