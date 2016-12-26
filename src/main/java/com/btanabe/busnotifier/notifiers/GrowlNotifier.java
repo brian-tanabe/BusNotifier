@@ -1,10 +1,11 @@
 package com.btanabe.busnotifier.notifiers;
 
+import com.btanabe.busnotifier.message.internal.BusArrivalMessage;
 import com.btanabe.busnotifier.notifiers.growl.factories.GrowlApplicationInfoFactory;
 import com.btanabe.busnotifier.notifiers.growl.factories.GrowlClientFactory;
 import com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationFactory;
 import com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationInfoFactory;
-import com.btanabe.busnotifier.message.internal.BusArrivalMessage;
+import com.btanabe.busnotifier.utilities.ImageHelper;
 import com.btanabe.busnotifier.utilities.TimeHelper;
 import com.google.code.jgntp.GntpApplicationInfo;
 import com.google.code.jgntp.GntpClient;
@@ -43,10 +44,14 @@ public class GrowlNotifier extends AbstractNotifier {
     @NonNull
     private GrowlClientFactory clientFactory;
 
+    @NonNull
+    private ImageHelper iconCreator;
+
     public GrowlNotifier(GrowlNotificationInfoFactory notificationInfoFactory,
                          GrowlApplicationInfoFactory applicationInfoFactory,
                          GrowlNotificationFactory notificationFactory,
                          GrowlClientFactory clientFactory,
+                         ImageHelper iconCreator,
                          EventBus eventBus) {
 
         super(eventBus);
@@ -54,6 +59,7 @@ public class GrowlNotifier extends AbstractNotifier {
         this.notificationFactory = notificationFactory;
         this.applicationInfoFactory = applicationInfoFactory;
         this.clientFactory = clientFactory;
+        this.iconCreator = iconCreator;
     }
 
     @Override
@@ -63,7 +69,11 @@ public class GrowlNotifier extends AbstractNotifier {
         GntpApplicationInfo applicationInfo = applicationInfoFactory.createApplicationInfo();
         GntpNotificationInfo notificationInfo = notificationInfoFactory.createNotificationInfo(applicationInfo, NOTIFICATION_NAME);
         GntpClient client = clientFactory.createClient(applicationInfo);
-        GntpNotification notification = notificationFactory.createNotification(notificationInfo, String.format("Route %s: %d minutes away", message.getRouteName(), TimeHelper.getTimeDifferenceInMinutes(System.currentTimeMillis(), message.getExpectedArrivalTime())), message.getStopLocation());
+        GntpNotification notification = notificationFactory.createNotification(
+                notificationInfo,
+                String.format("Route %s: %d minutes away", message.getRouteName(), TimeHelper.getTimeDifferenceInMinutes(System.currentTimeMillis(), message.getExpectedArrivalTime())),
+                message.getStopLocation(),
+                iconCreator.createMessageIcon(message.getRouteName()));
 
         client.register();
         client.notify(notification);

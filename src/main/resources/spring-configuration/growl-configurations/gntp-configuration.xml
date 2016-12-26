@@ -10,14 +10,16 @@
         <constructor-arg value="Bus Notifier"/>
     </bean>
 
-    <bean id="growlApplicationInfoFactory" class="com.btanabe.busnotifier.notifiers.growl.factories.GrowlApplicationInfoFactory">
+    <bean id="growlApplicationInfoFactory"
+          class="com.btanabe.busnotifier.notifiers.growl.factories.GrowlApplicationInfoFactory">
         <constructor-arg name="applicationName" ref="growlApplicationName"/>
     </bean>
 
     <bean id="growlNotificationInfoFactory"
           class="com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationInfoFactory"/>
 
-    <bean id="growlNotificationFactory" class="com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationFactory"/>
+    <bean id="growlNotificationFactory"
+          class="com.btanabe.busnotifier.notifiers.growl.factories.GrowlNotificationFactory"/>
 
     <bean id="growlClientFactory" class="com.btanabe.busnotifier.notifiers.growl.factories.GrowlClientFactory">
         <constructor-arg name="host" value="localhost"/>
@@ -31,6 +33,9 @@
         <constructor-arg name="notificationInfoFactory" ref="growlNotificationInfoFactory"/>
         <constructor-arg name="clientFactory" ref="growlClientFactory"/>
         <constructor-arg name="eventBus" ref="notificationEventBus"/>
+        <constructor-arg name="iconCreator">
+            <bean class="com.btanabe.busnotifier.utilities.ImageHelper"/>
+        </constructor-arg>
     </bean>
 
 </beans>

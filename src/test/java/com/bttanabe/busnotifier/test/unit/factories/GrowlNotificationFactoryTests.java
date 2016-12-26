@@ -1,11 +1,12 @@
 package com.bttanabe.busnotifier.test.unit.factories;
 
-import com.btanabe.busnotifier.notifiers.growl.factories.GrowlClientFactory;
 import com.btanabe.busnotifier.message.internal.AcknowledgedMessage;
 import com.btanabe.busnotifier.message.internal.BusArrivalMessage;
 import com.btanabe.busnotifier.notifiers.GrowlNotifier;
+import com.btanabe.busnotifier.notifiers.growl.factories.GrowlClientFactory;
 import com.btanabe.busnotifier.utilities.TimeHelper;
 import com.bttanabe.busnotifier.test.utilities.AcknowledgedMessageListener;
+import com.bttanabe.busnotifier.test.utilities.ImageComparator;
 import com.google.code.jgntp.GntpApplicationInfo;
 import com.google.code.jgntp.GntpClient;
 import com.google.code.jgntp.GntpNotification;
@@ -17,8 +18,12 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.imageio.ImageIO;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -47,6 +52,9 @@ public class GrowlNotificationFactoryTests {
     @Autowired
     @Qualifier("growlNotifier")
     private GrowlNotifier notifier;
+
+    @Value("classpath:test-images/expected-route11-icon.png")
+    private Resource expectedRoute11Image;
 
     private AcknowledgedMessageListener messageListener;
 
@@ -106,6 +114,14 @@ public class GrowlNotificationFactoryTests {
         blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
         assertThat(capturePostedNotification().getName(), is(equalTo("Arrival Notification")));
+    }
+
+    @Test
+    public void shouldBeAbleToPostNotificationsWithTheCorrectIcon() throws Exception {
+        BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
+        blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
+
+        ImageComparator.assertImageEquals(capturePostedNotification().getIconImage(), ImageIO.read(expectedRoute11Image.getFile()));
     }
 
     private BusArrivalMessage postTestMessage(Long expectedArrivalTime, String routeName, String routeLocation) {
