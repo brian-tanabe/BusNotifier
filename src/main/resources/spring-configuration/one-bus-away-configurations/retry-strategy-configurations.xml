@@ -8,7 +8,7 @@
         <property name="totalAttemptCount" value="10"/>
         <property name="totalRequestTimeoutInSeconds" value="30"/>
         <property name="retryListener">
-            <bean class="com.btanabe.busnotifier.listeners.LoggingRetryListener"/>
+            <bean class="com.btanabe.busnotifier.onebusaway.listeners.LoggingRetryListener"/>
         </property>
     </bean>
 

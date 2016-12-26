@@ -1,4 +1,4 @@
-package com.btanabe.busnotifier.listeners;
+package com.btanabe.busnotifier.onebusaway.listeners;
 
 import com.github.rholder.retry.Attempt;
 import com.github.rholder.retry.RetryListener;
