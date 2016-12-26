@@ -9,16 +9,16 @@ version = '1.0'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://maven.atlassian.com/3rdparty/"
+    }
 }
 
 dependencies {
     compile 'org.projectlombok:lombok:1.16.4'
     compile 'com.google.guava:guava:20.0'
 
-    /**
-     * Provides retry behavior:
-     * https://github.com/rholder/guava-retrying
-     */
+    // https://github.com/rholder/guava-retrying
     compile 'com.github.rholder:guava-retrying:2.0.0'
 
     compile 'org.apache.commons:commons-collections4:4.1'
@@ -27,10 +27,7 @@ dependencies {
     compile 'org.springframework:spring-core:4.2.5.RELEASE'
     compile 'org.springframework:spring-context:4.2.5.RELEASE'
     compile 'org.springframework:spring-test:4.2.5.RELEASE'
-    compile 'org.springframework:spring-tasks:4.2.5.RELEASE'
-
-    // compile 'net.sf.jtidy:jtidy:r938'
-    // compile 'org.jsoup:jsoup:1.8.3'
+//    compile 'org.springframework:spring-tasks:4.2.5.RELEASE'
 
     // compile 'org.hibernate:hibernate-core:5.0.2.Final'
     // compile 'org.postgresql:postgresql:9.4-1205-jdbc42'
@@ -46,6 +43,7 @@ dependencies {
 
     compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
 
+    // https://github.com/mirkojahn/jgntp/tree/master/src/main/java/com/google/code/jgntp
     compile 'com.google.code.jgntp:jgntp:1.2.1'
 
     // This allows you to make a standalone mac app
@@ -65,6 +63,14 @@ dependencies {
 
 
     testCompile 'org.apache.derby:derby:10.12.1.1'
+}
+
+/**
+ * This is a hack, the PowerMock authors need to compile PowerMock against a newer JDK version:
+ * https://stackoverflow.com/questions/25621407/gradle-bad-init-method-call-from-inside-of-a-branch-invokespecial
+ */
+test {
+    jvmArgs '-noverify'
 }
 
 jar {

@@ -14,7 +14,7 @@ public abstract class OneBusAwayRequestUrlProvider {
     protected static final String URL_PREFIX = "http://api.pugetsound.onebusaway.org/api/where";
     protected static final String RESPONSE_FORMAT = "json";
 
-    public abstract String getRequestUrl(@NonNull KeyProvider keyProvider);
+    public abstract String getRequestUrl(KeyProvider keyProvider);
 
     protected String validateInputParameters(@NonNull String requestUrl) {
         if (Strings.isNullOrEmpty(requestUrl)) {
