@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * Created by Brian on 12/22/16.
  * <p>
@@ -26,7 +28,7 @@ import lombok.RequiredArgsConstructor;
 public class BusArrivalMessage implements InternalMessage {
 
     @NonNull
-    private final Long expectedArrivalTime;
+    private final LocalDateTime expectedArrivalTime;
 
     @NonNull
     private final String routeName;

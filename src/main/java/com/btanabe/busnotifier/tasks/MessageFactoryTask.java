@@ -13,10 +13,12 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import static java.time.LocalDateTime.*;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -71,8 +73,8 @@ public class MessageFactoryTask implements Callable<Void> {
      */
     private List<ArrivalsAndDepartures> filterOutTripsWhichAreNotInTheTravelWindowOrAreNotDepartingSoonEnough(TravelWindow travelWindow, List<ArrivalsAndDepartures> arrivalsAndDepartures) {
         return arrivalsAndDepartures.stream().filter(trip -> {
-            boolean isWithinTimeWindow = travelWindow.isTimeWithinWindow(DepartureTimeHelper.getDepartureTime(trip));
-            boolean isDepartingSoonEnough = travelWindow.shouldSendNotification(TimeHelper.getTimeDifferenceInMinutes(System.currentTimeMillis(), DepartureTimeHelper.getDepartureTime(trip)));
+            boolean isWithinTimeWindow = travelWindow.isTimeWithinWindow(DepartureTimeHelper.getDepartureLocalDateTime(trip));
+            boolean isDepartingSoonEnough = travelWindow.shouldSendNotification(TimeHelper.getTimeDifferenceInMinutes(now(), DepartureTimeHelper.getDepartureLocalDateTime(trip)));
 
             return isWithinTimeWindow && isDepartingSoonEnough;
         }).collect(toList());
@@ -82,7 +84,7 @@ public class MessageFactoryTask implements Callable<Void> {
         List<BusArrivalMessage> busArrivalMessages = new ArrayList<>();
         for (ArrivalsAndDepartures trip : arrivalsAndDepartures) {
 
-            Long expectedArrivalTime = DepartureTimeHelper.getDepartureTime(trip);
+            LocalDateTime expectedArrivalTime = DepartureTimeHelper.getDepartureLocalDateTime(trip);
             String routeName = trip.getRouteShortName();
             String stopLocation = travelWindow.getRouteAtStopToMonitor().getStopName();
 

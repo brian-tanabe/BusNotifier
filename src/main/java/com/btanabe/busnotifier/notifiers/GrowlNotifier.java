@@ -16,6 +16,8 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDateTime;
+
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 /**
@@ -71,7 +73,7 @@ public class GrowlNotifier extends AbstractNotifier {
         GntpClient client = clientFactory.createClient(applicationInfo);
         GntpNotification notification = notificationFactory.createNotification(
                 notificationInfo,
-                String.format("Route %s: %d minutes away", message.getRouteName(), TimeHelper.getTimeDifferenceInMinutes(System.currentTimeMillis(), message.getExpectedArrivalTime())),
+                String.format("Route %s: %d minutes away", message.getRouteName(), TimeHelper.getTimeDifferenceInMinutes(LocalDateTime.now(), message.getExpectedArrivalTime())),
                 message.getStopLocation(),
                 iconCreator.createMessageIcon(message.getRouteName()));
 

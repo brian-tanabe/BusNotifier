@@ -2,6 +2,7 @@ package com.btanabe.busnotifier.model.comparators;
 
 import com.btanabe.busnotifier.model.types.ArrivalsAndDepartures;
 
+import java.time.LocalDateTime;
 import java.util.Comparator;
 
 /**
@@ -13,8 +14,8 @@ public class ArrivalsAndDeparturesComparator implements Comparator<ArrivalsAndDe
     @Override
     public int compare(ArrivalsAndDepartures lhs, ArrivalsAndDepartures rhs) {
 
-        Long lhsDepartureTime = DepartureTimeHelper.getDepartureTime(lhs);
-        Long rhsDepartureTime = DepartureTimeHelper.getDepartureTime(rhs);
+        LocalDateTime lhsDepartureTime = DepartureTimeHelper.getDepartureLocalDateTime(lhs);
+        LocalDateTime rhsDepartureTime = DepartureTimeHelper.getDepartureLocalDateTime(rhs);
 
         return lhsDepartureTime.compareTo(rhsDepartureTime);
     }

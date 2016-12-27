@@ -1,6 +1,9 @@
 package com.btanabe.busnotifier.model.comparators;
 
 import com.btanabe.busnotifier.model.types.ArrivalsAndDepartures;
+import com.btanabe.busnotifier.utilities.TimeHelper;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by Brian on 12/23/16.
@@ -15,7 +18,8 @@ public class DepartureTimeHelper {
      * @param arrivalsAndDepartures
      * @return
      */
-    public static Long getDepartureTime(ArrivalsAndDepartures arrivalsAndDepartures) {
-        return arrivalsAndDepartures.getPredictedDepartureTime() == 0L ? arrivalsAndDepartures.getScheduledDepartureTime() : arrivalsAndDepartures.getPredictedDepartureTime();
+    public static LocalDateTime getDepartureLocalDateTime(ArrivalsAndDepartures arrivalsAndDepartures) {
+        Long epochTime = arrivalsAndDepartures.getPredictedDepartureTime() == 0L ? arrivalsAndDepartures.getScheduledDepartureTime() : arrivalsAndDepartures.getPredictedDepartureTime();
+        return TimeHelper.getLocalDateTime(epochTime);
     }
 }

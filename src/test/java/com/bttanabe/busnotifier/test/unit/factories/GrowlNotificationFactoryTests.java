@@ -25,6 +25,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.imageio.ImageIO;
 
+import java.time.LocalDateTime;
+
+import static com.btanabe.busnotifier.utilities.TimeHelper.getLocalDateTime;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -89,7 +92,7 @@ public class GrowlNotificationFactoryTests {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
         blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
-        assertThat(capturePostedNotification().getTitle(), is(equalTo(String.format("Route %s: %d minutes away", arrivalMessage.getRouteName(), TimeHelper.getTimeDifferenceInMinutes(System.currentTimeMillis(), arrivalMessage.getExpectedArrivalTime())))));
+        assertThat(capturePostedNotification().getTitle(), is(equalTo(String.format("Route %s: %d minutes away", arrivalMessage.getRouteName(), TimeHelper.getTimeDifferenceInMinutes(LocalDateTime.now(), arrivalMessage.getExpectedArrivalTime())))));
     }
 
     @Test
@@ -125,7 +128,7 @@ public class GrowlNotificationFactoryTests {
     }
 
     private BusArrivalMessage postTestMessage(Long expectedArrivalTime, String routeName, String routeLocation) {
-        BusArrivalMessage message = new BusArrivalMessage(expectedArrivalTime, routeName, routeLocation);
+        BusArrivalMessage message = new BusArrivalMessage(getLocalDateTime(expectedArrivalTime), routeName, routeLocation);
         eventBus.post(message);
         return message;
     }

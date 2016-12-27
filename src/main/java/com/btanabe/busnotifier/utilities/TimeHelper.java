@@ -1,5 +1,10 @@
 package com.btanabe.busnotifier.utilities;
 
+import lombok.NonNull;
+
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -11,9 +16,19 @@ import java.util.concurrent.TimeUnit;
  */
 public class TimeHelper {
 
-    public static Long getTimeDifferenceInMinutes(long closerTimeInMillis, long fartherTimeInMillis) {
-        long timeDifference = fartherTimeInMillis - closerTimeInMillis;
+    // TODO return system default ZoneId when I go back to Pacific Time:
+    public static final ZoneId ZONE_ID = ZoneId.of("GMT-8");
 
+    public static Long getTimeDifferenceInMinutes(LocalDateTime closerTime, LocalDateTime fartherTime) {
+        long timeDifference = getTimeEpochTime(fartherTime) - getTimeEpochTime(closerTime);
         return TimeUnit.MILLISECONDS.toMinutes(timeDifference);
+    }
+
+    public static Long getTimeEpochTime(LocalDateTime time) {
+        return time.atZone(ZONE_ID).toInstant().toEpochMilli();
+    }
+
+    public static LocalDateTime getLocalDateTime(@NonNull Long epochTime) {
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochTime), ZONE_ID);
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="routeAtStopToMonitor8At25thAndMadison" class="com.btanabe.busnotifier.configuration.RouteAtStopToMonitor">
+        <constructor-arg name="routeId" value="1_100275"/>
+        <constructor-arg name="stopId" value="1_12340"/>
+        <constructor-arg name="stopName" value="E Madison St &amp; 25th Ave E"/>
+    </bean>
+
+    <bean id="routeAtStopToMonitor11At25thAndMadison"
+          class="com.btanabe.busnotifier.configuration.RouteAtStopToMonitor">
+        <constructor-arg name="routeId" value="1_100009"/>
+        <constructor-arg name="stopId" value="1_12340"/>
+        <constructor-arg name="stopName" value="E Madison St &amp; 25th Ave E"/>
+    </bean>
+
+    <bean id="routeAtStopToMonitor11At9thAndPine" class="com.btanabe.busnotifier.configuration.RouteAtStopToMonitor">
+        <constructor-arg name="routeId" value="1_100009"/>
+        <constructor-arg name="stopId" value="1_1000"/>
+        <constructor-arg name="stopName" value="Pine St &amp; 9th Ave"/>
+    </bean>
+
+    <bean id="routeAtStopToMonitor8AtDennyAndFairview"
+          class="com.btanabe.busnotifier.configuration.RouteAtStopToMonitor">
+        <constructor-arg name="routeId" value="1_100275"/>
+        <constructor-arg name="stopId" value="1_2260"/>
+        <constructor-arg name="stopName" value="Denny Way &amp; Fairview Ave"/>
+    </bean>
+
+</beans>
