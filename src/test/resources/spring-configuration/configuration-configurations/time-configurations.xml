@@ -13,4 +13,9 @@
         <constructor-arg index="1" type="int" value="30"/>
     </bean>
 
+    <bean id="twoThirtyLocalTime" class="java.time.LocalTime" factory-method="of">
+        <constructor-arg index="0" type="int" value="2"/>
+        <constructor-arg index="1" type="int" value="30"/>
+    </bean>
+
 </beans>

@@ -6,10 +6,18 @@
     <import resource="time-configurations.xml"/>
     <import resource="route-at-stop-to-monitor.xml"/>
 
-    <bean id="seventeenThirtyToTwentyThreeThirtyTravelWindow" class="com.btanabe.busnotifier.configuration.TravelWindow">
+    <bean id="seventeenThirtyToTwentyThreeThirtyTravelWindow"
+          class="com.btanabe.busnotifier.configuration.TravelWindow">
         <constructor-arg name="minutesBeforeArrivalToStartNotifying" value="12"/>
         <constructor-arg name="windowStartTimeInclusive" ref="seventeenThirtyLocalTime"/>
         <constructor-arg name="windowEndTimeInclusive" ref="twentyThreeThirtyLocalTime"/>
+        <constructor-arg name="routeAtStopToMonitor" ref="routeAtStopToMonitor11At9thAndPine"/>
+    </bean>
+
+    <bean id="seventeenThirtyToTwoThirtyTravelWindow" class="com.btanabe.busnotifier.configuration.TravelWindow">
+        <constructor-arg name="minutesBeforeArrivalToStartNotifying" value="12"/>
+        <constructor-arg name="windowStartTimeInclusive" ref="seventeenThirtyLocalTime"/>
+        <constructor-arg name="windowEndTimeInclusive" ref="twoThirtyLocalTime"/>
         <constructor-arg name="routeAtStopToMonitor" ref="routeAtStopToMonitor11At9thAndPine"/>
     </bean>
 

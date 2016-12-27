@@ -26,6 +26,10 @@ public class TravelWindowTests {
     @Qualifier("seventeenThirtyToTwentyThreeThirtyTravelWindow")
     private TravelWindow seventeenThirtyToTwentyThreeThirtyTravelWindow;
 
+    @Autowired
+    @Qualifier("seventeenThirtyToTwoThirtyTravelWindow")
+    private TravelWindow seventeenThirtyToTwoThirtyTravelWindow;
+
     @Test
     public void shouldKnowTheWindowIsOpenWhenTheTimeIsTheSameAsTheStartTime() {
         assertThat(seventeenThirtyToTwentyThreeThirtyTravelWindow.isTimeWithinWindow(createTestLocalDateTime(17, 30)), is(true));
@@ -64,6 +68,26 @@ public class TravelWindowTests {
     @Test
     public void shouldKnowToNotSendNotificationsWhenTheTimeToArrivalIsGreaterThanTheOffsetTime() {
         assertThat(seventeenThirtyToTwentyThreeThirtyTravelWindow.shouldSendNotification(seventeenThirtyToTwentyThreeThirtyTravelWindow.getMinutesBeforeArrivalToStartNotifying() + 1), is(false));
+    }
+
+    @Test
+    public void shouldKnowTheWindowIsOpenWhenTheEndTimeFallsOnTheNextDayAndTheCurrentTimeIsOnTheStartingDay() {
+        assertThat(seventeenThirtyToTwoThirtyTravelWindow.isTimeWithinWindow(createTestLocalDateTime(18, 0)), is(true));
+    }
+
+    @Test
+    public void shouldKnowTheWindowIsOpenWhenTheEndTimeFallsOnTheNextDayAndTheCurrentTimeIsOnTheFollowingDay() {
+        assertThat(seventeenThirtyToTwoThirtyTravelWindow.isTimeWithinWindow(createTestLocalDateTime(1, 0).plusDays(1L)), is(true));
+    }
+
+    @Test
+    public void shouldKnowTheWindowIsClosedWhenTheEndTimeFallsOnTheNextDayAndTheCurrentTimeIsAfterItsClosed() {
+        assertThat(seventeenThirtyToTwoThirtyTravelWindow.isTimeWithinWindow(createTestLocalDateTime(2, 31)), is(false));
+    }
+
+    @Test
+    public void shouldKnowTheWindowIsClosedWhenTheEndTimeFallsOnTheNextDayAndTheCurrentTimeIsBeforeItsClosed() {
+        assertThat(seventeenThirtyToTwoThirtyTravelWindow.isTimeWithinWindow(createTestLocalDateTime(7, 30)), is(false));
     }
 
     private LocalDateTime createTestLocalDateTime(int hour, int minute) {

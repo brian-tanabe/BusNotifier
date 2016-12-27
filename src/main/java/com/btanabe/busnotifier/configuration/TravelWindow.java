@@ -33,8 +33,8 @@ public class TravelWindow {
          * In order to make the comparisons inclusive, we must make the start and end times one
          * minute less or greater than their specified times:
          */
-        LocalDateTime startDateTime = createStartingLocalDateTime(windowStartTimeInclusive);
-        LocalDateTime endDateTime = createEndingLocalDateTime(windowEndTimeInclusive);
+        LocalDateTime startDateTime = createStartingLocalDateTime();
+        LocalDateTime endDateTime = createEndingLocalDateTime();
 
         return time.isAfter(startDateTime) && time.isBefore(endDateTime);
     }
@@ -43,11 +43,14 @@ public class TravelWindow {
         return timeUntilArrival <= minutesBeforeArrivalToStartNotifying;
     }
 
-    private LocalDateTime createStartingLocalDateTime(LocalTime windowStartTimeInclusive) {
+    private LocalDateTime createStartingLocalDateTime() {
         return windowStartTimeInclusive.atDate(LocalDate.now()).minusMinutes(1L);
     }
 
-    private LocalDateTime createEndingLocalDateTime(LocalTime windowEndTimeInclusive) {
-        return windowEndTimeInclusive.atDate(LocalDate.now()).plusMinutes(1L);
+    private LocalDateTime createEndingLocalDateTime() {
+        if (windowEndTimeInclusive.isAfter(windowStartTimeInclusive))
+            return windowEndTimeInclusive.atDate(LocalDate.now()).plusMinutes(1L);
+        else
+            return windowEndTimeInclusive.atDate(LocalDate.now()).plusMinutes(1L).plusDays(1L);
     }
 }
