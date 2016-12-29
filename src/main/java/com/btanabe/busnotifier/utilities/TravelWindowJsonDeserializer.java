@@ -30,11 +30,11 @@ public class TravelWindowJsonDeserializer extends StdDeserializer<TravelWindow> 
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
 
         LocalTime startTime = createLocalTime(node.get(TravelWindow.WINDOW_START_TIME).asText());
-        LocalTime endtime = createLocalTime(node.get(TravelWindow.WINDOW_END_TIME).asText());
+        LocalTime endTime = createLocalTime(node.get(TravelWindow.WINDOW_END_TIME).asText());
         Long minutesBeforeArrivalToStartNotifying = node.get(TravelWindow.MINUTES_BEFORE_ARRIVAL).asLong();
         RouteAtStopToMonitor routeAtStopToMonitor = createRouteAtStopToMonitor(node.get(TravelWindow.ROUTE_AT_STOP_TO_MONITOR));
 
-        return new TravelWindow(routeAtStopToMonitor, startTime, endtime, minutesBeforeArrivalToStartNotifying);
+        return new TravelWindow(routeAtStopToMonitor, startTime, endTime, minutesBeforeArrivalToStartNotifying);
     }
 
     private LocalTime createLocalTime(String localTimeString) {
