@@ -61,7 +61,7 @@ public class JsonDeerializerTests {
 
     @Autowired
     @Qualifier("travelWindowList")
-    private String traveWindowListString;
+    private String travelWindowListString;
 
     @Resource(name = "expectedTravelWindowList")
     private List<TravelWindow> expectedTravelWindowList;
@@ -92,7 +92,7 @@ public class JsonDeerializerTests {
 
     @Test
     public void shouldBeAbleToDeserializeTravelWindowLists() throws Exception {
-        List<TravelWindow> testTravelWindows = JsonDeserializer.deserializeResponse(traveWindowListString, new TypeReference<List<TravelWindow>>() {
+        List<TravelWindow> testTravelWindows = JsonDeserializer.deserializeResponse(travelWindowListString, new TypeReference<List<TravelWindow>>() {
         });
         assertThat(testTravelWindows, is(equalTo(expectedTravelWindowList)));
     }
