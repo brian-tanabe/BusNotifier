@@ -23,11 +23,11 @@ import static org.junit.Assert.assertThat;
 public class TravelWindowTests {
 
     @Autowired
-    @Qualifier("seventeenThirtyToTwentyThreeThirtyTravelWindow")
+    @Qualifier("seventeenThirtyToTwentyThreeThirtyRoute11TravelWindow")
     private TravelWindow seventeenThirtyToTwentyThreeThirtyTravelWindow;
 
     @Autowired
-    @Qualifier("seventeenThirtyToTwoThirtyTravelWindow")
+    @Qualifier("seventeenThirtyToTwoThirtyRoute11TravelWindow")
     private TravelWindow seventeenThirtyToTwoThirtyTravelWindow;
 
     @Test

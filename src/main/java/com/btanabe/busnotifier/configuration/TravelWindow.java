@@ -1,8 +1,12 @@
 package com.btanabe.busnotifier.configuration;
 
+import com.btanabe.busnotifier.utilities.TravelWindowJsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,8 +16,15 @@ import java.time.LocalTime;
  * Created by Brian on 12/22/16.
  */
 @Getter
+@ToString
+@EqualsAndHashCode
 @RequiredArgsConstructor
+@JsonDeserialize(using = TravelWindowJsonDeserializer.class)
 public class TravelWindow {
+    public static final String WINDOW_START_TIME = "windowStartTimeInclusive";
+    public static final String WINDOW_END_TIME = "windowEndTimeInclusive";
+    public static final String MINUTES_BEFORE_ARRIVAL = "minutesBeforeArrivalToStartNotifying";
+    public static final String ROUTE_AT_STOP_TO_MONITOR = "routeAtStopToMonitor";
 
     @NonNull
     private final RouteAtStopToMonitor routeAtStopToMonitor;

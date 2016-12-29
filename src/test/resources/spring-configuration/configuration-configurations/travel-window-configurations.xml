@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="time-configurations.xml"/>
     <import resource="route-at-stop-to-monitor.xml"/>
 
-    <bean id="seventeenThirtyToTwentyThreeThirtyTravelWindow"
+    <bean id="seventeenThirtyToTwentyThreeThirtyRoute11TravelWindow"
           class="com.btanabe.busnotifier.configuration.TravelWindow">
         <constructor-arg name="minutesBeforeArrivalToStartNotifying" value="12"/>
         <constructor-arg name="windowStartTimeInclusive" ref="seventeenThirtyLocalTime"/>
@@ -14,11 +14,39 @@
         <constructor-arg name="routeAtStopToMonitor" ref="routeAtStopToMonitor11At9thAndPine"/>
     </bean>
 
-    <bean id="seventeenThirtyToTwoThirtyTravelWindow" class="com.btanabe.busnotifier.configuration.TravelWindow">
+    <bean id="seventeenThirtyToTwoThirtyRoute11TravelWindow" class="com.btanabe.busnotifier.configuration.TravelWindow">
         <constructor-arg name="minutesBeforeArrivalToStartNotifying" value="12"/>
         <constructor-arg name="windowStartTimeInclusive" ref="seventeenThirtyLocalTime"/>
         <constructor-arg name="windowEndTimeInclusive" ref="twoThirtyLocalTime"/>
         <constructor-arg name="routeAtStopToMonitor" ref="routeAtStopToMonitor11At9thAndPine"/>
     </bean>
+
+    <bean id="seventeenThirtyToTwoThirtyRoute8TravelWindow" class="com.btanabe.busnotifier.configuration.TravelWindow">
+        <constructor-arg name="minutesBeforeArrivalToStartNotifying" value="12"/>
+        <constructor-arg name="windowStartTimeInclusive" ref="seventeenThirtyLocalTime"/>
+        <constructor-arg name="windowEndTimeInclusive" ref="twoThirtyLocalTime"/>
+        <constructor-arg name="routeAtStopToMonitor" ref="routeAtStopToMonitor8AtDennyAndFairview"/>
+    </bean>
+
+    <bean id="eightToTenThirtyRoute8TravelWindow" class="com.btanabe.busnotifier.configuration.TravelWindow">
+        <constructor-arg name="minutesBeforeArrivalToStartNotifying" value="12"/>
+        <constructor-arg name="windowStartTimeInclusive" ref="eightLocalTime"/>
+        <constructor-arg name="windowEndTimeInclusive" ref="tenThirtyLocalTime"/>
+        <constructor-arg name="routeAtStopToMonitor" ref="routeAtStopToMonitor8At25thAndMadison"/>
+    </bean>
+
+    <bean id="eightToTenThirtyRoute11TravelWindow" class="com.btanabe.busnotifier.configuration.TravelWindow">
+        <constructor-arg name="minutesBeforeArrivalToStartNotifying" value="12"/>
+        <constructor-arg name="windowStartTimeInclusive" ref="eightLocalTime"/>
+        <constructor-arg name="windowEndTimeInclusive" ref="tenThirtyLocalTime"/>
+        <constructor-arg name="routeAtStopToMonitor" ref="routeAtStopToMonitor11At25thAndMadison"/>
+    </bean>
+
+    <util:list id="expectedTravelWindowList" value-type="com.btanabe.busnotifier.configuration.TravelWindow">
+        <ref bean="seventeenThirtyToTwoThirtyRoute11TravelWindow"/>
+        <ref bean="seventeenThirtyToTwoThirtyRoute8TravelWindow"/>
+        <ref bean="eightToTenThirtyRoute8TravelWindow"/>
+        <ref bean="eightToTenThirtyRoute11TravelWindow"/>
+    </util:list>
 
 </beans>

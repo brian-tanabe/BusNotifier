@@ -4,9 +4,9 @@ import com.btanabe.busnotifier.exceptions.InternalServerException;
 import com.btanabe.busnotifier.exceptions.InvalidRequestException;
 import com.btanabe.busnotifier.exceptions.ResourceNotFoundException;
 import com.btanabe.busnotifier.exceptions.ThrottledRequestException;
-import com.btanabe.busnotifier.exceptions.UnableToSerializeOutputResponseException;
+import com.btanabe.busnotifier.exceptions.UnableToDeserializeOutputResponseException;
 import com.btanabe.busnotifier.exceptions.UnknownErrorCodeException;
-import com.btanabe.busnotifier.factories.JsonSerializer;
+import com.btanabe.busnotifier.factories.JsonDeserializer;
 import com.btanabe.busnotifier.model.Model;
 import com.btanabe.busnotifier.onebusaway.call.ResponseCodes;
 import com.btanabe.busnotifier.onebusaway.requestparamter.OneBusAwayRequestUrlProvider;
@@ -65,11 +65,11 @@ public class OneBusAwayWebTask<ApiOutputType extends Model> implements Callable<
         final String responseHtml = WebRequest.getPage(requestUrl);
 
         try {
-            final ApiOutputType responseModel = JsonSerializer.serializeResponse(responseHtml, outputClassType);
+            final ApiOutputType responseModel = JsonDeserializer.deserializeResponse(responseHtml, outputClassType);
             return validateResponse(requestUrl, responseModel);
         } catch (IOException ex) {
-            log.error(String.format("Unable to serialize API output from requestUrl=[%s], response=[%s]", requestUrl, responseHtml));
-            throw new UnableToSerializeOutputResponseException();
+            log.error(String.format("Unable to deserialize API output from requestUrl=[%s], response=[%s]", requestUrl, responseHtml));
+            throw new UnableToDeserializeOutputResponseException();
         }
     }
 }

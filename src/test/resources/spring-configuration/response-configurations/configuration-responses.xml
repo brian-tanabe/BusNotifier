@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="singleRouteAtStopToMonitor" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-configurations/test-single-route-at-stop-to-monitor.json"/>
+    </bean>
+
+    <bean id="singleTravelWindow" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-configurations/test-single-travel-window-configuration.json"/>
+    </bean>
+
+    <bean id="travelWindowList" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-configurations/test-travel-window-configuration.json"/>
+    </bean>
+</beans>

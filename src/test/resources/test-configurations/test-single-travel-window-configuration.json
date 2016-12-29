@@ -1,0 +1,10 @@
+{
+  "windowStartTimeInclusive": "17:30",
+  "windowEndTimeInclusive": "2:30",
+  "minutesBeforeArrivalToStartNotifying": 12,
+  "routeAtStopToMonitor": {
+    "routeId": "1_100009",
+    "stopId": "1_1000",
+    "stopName": "Pine St & 9th Ave"
+  }
+}

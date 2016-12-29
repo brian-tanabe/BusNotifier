@@ -3,6 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="eightLocalTime" class="java.time.LocalTime" factory-method="of">
+        <constructor-arg index="0" type="int" value="8"/>
+        <constructor-arg index="1" type="int" value="00"/>
+    </bean>
+
+    <bean id="tenThirtyLocalTime" class="java.time.LocalTime" factory-method="of">
+        <constructor-arg index="0" type="int" value="10"/>
+        <constructor-arg index="1" type="int" value="30"/>
+    </bean>
+
     <bean id="seventeenThirtyLocalTime" class="java.time.LocalTime" factory-method="of">
         <constructor-arg index="0" type="int" value="17"/>
         <constructor-arg index="1" type="int" value="30"/>
