@@ -6,7 +6,7 @@ import com.btanabe.busnotifier.exceptions.ResourceNotFoundException;
 import com.btanabe.busnotifier.exceptions.ThrottledRequestException;
 import com.btanabe.busnotifier.exceptions.UnableToDeserializeOutputResponseException;
 import com.btanabe.busnotifier.exceptions.UnknownErrorCodeException;
-import com.btanabe.busnotifier.factories.JsonDeserializer;
+import com.btanabe.busnotifier.utilities.JsonDeserializer;
 import com.btanabe.busnotifier.model.Model;
 import com.btanabe.busnotifier.onebusaway.call.ResponseCodes;
 import com.btanabe.busnotifier.onebusaway.requestparamter.OneBusAwayRequestUrlProvider;

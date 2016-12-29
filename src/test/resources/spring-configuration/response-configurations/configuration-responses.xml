@@ -14,4 +14,8 @@
     <bean id="travelWindowList" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
         <property name="inputFile" value="classpath:/test-configurations/test-travel-window-configuration.json"/>
     </bean>
+
+    <bean id="applicationConfiguration" class="com.bttanabe.busnotifier.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-configurations/test-application-configuration.json"/>
+    </bean>
 </beans>

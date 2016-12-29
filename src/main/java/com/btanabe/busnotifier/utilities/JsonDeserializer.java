@@ -1,4 +1,4 @@
-package com.btanabe.busnotifier.factories;
+package com.btanabe.busnotifier.utilities;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

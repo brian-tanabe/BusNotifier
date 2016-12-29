@@ -1,5 +1,6 @@
 package com.btanabe.busnotifier.configuration.providers;
 
+import com.btanabe.busnotifier.configuration.ApplicationConfiguration;
 import com.btanabe.busnotifier.configuration.TravelWindow;
 
 import java.util.List;
@@ -9,4 +10,6 @@ import java.util.List;
  */
 public interface ConfigurationProvider {
     List<TravelWindow> getTravelWindowsToMonitor() throws Exception;
+
+    ApplicationConfiguration getApplicationConfiguration() throws Exception;
 }

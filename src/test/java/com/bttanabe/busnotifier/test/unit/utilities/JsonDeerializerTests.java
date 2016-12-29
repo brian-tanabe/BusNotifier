@@ -1,10 +1,11 @@
-package com.bttanabe.busnotifier.test.unit.factories;
+package com.bttanabe.busnotifier.test.unit.utilities;
 
+import com.btanabe.busnotifier.configuration.ApplicationConfiguration;
 import com.btanabe.busnotifier.configuration.RouteAtStopToMonitor;
 import com.btanabe.busnotifier.configuration.TravelWindow;
-import com.btanabe.busnotifier.factories.JsonDeserializer;
 import com.btanabe.busnotifier.model.ArrivalsAndDeparturesForStopModel;
 import com.btanabe.busnotifier.model.StopsForLocation;
+import com.btanabe.busnotifier.utilities.JsonDeserializer;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -66,6 +67,14 @@ public class JsonDeerializerTests {
     @Resource(name = "expectedTravelWindowList")
     private List<TravelWindow> expectedTravelWindowList;
 
+    @Autowired
+    @Qualifier("applicationConfiguration")
+    private String applicationConfigurationString;
+
+    @Autowired
+    @Qualifier("expectedApplicationConfiguration")
+    private ApplicationConfiguration expectedApplicationConfiguration;
+
     @Test
     public void shouldBeAbleToDeserializeArrivalsAndDeparturesForStopModel() throws Exception {
         ArrivalsAndDeparturesForStopModel model = JsonDeserializer.deserializeResponse(arrivalsAndDeparturesForStop1_12378Response, ArrivalsAndDeparturesForStopModel.class);
@@ -95,5 +104,11 @@ public class JsonDeerializerTests {
         List<TravelWindow> testTravelWindows = JsonDeserializer.deserializeResponse(travelWindowListString, new TypeReference<List<TravelWindow>>() {
         });
         assertThat(testTravelWindows, is(equalTo(expectedTravelWindowList)));
+    }
+
+    @Test
+    public void shouldBeAbleToDeserializeApplicationConfigurations() throws Exception {
+        ApplicationConfiguration applicationConfiguration = JsonDeserializer.deserializeResponse(applicationConfigurationString, ApplicationConfiguration.class);
+        assertThat(applicationConfiguration, is(equalTo(expectedApplicationConfiguration)));
     }
 }

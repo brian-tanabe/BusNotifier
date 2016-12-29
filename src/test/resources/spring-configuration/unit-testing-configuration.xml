@@ -15,6 +15,7 @@
     <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-api-interface-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-retry-strategy-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/configuration-configurations/travel-window-configurations.xml"/>
+    <import resource="classpath*:/spring-configuration/configuration-configurations/application-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/response-configurations/configuration-responses.xml"/>
     <import resource="classpath*:/spring-configuration/model-configurations/route-at-stop-to-monitor-json.xml"/>
 </beans>
