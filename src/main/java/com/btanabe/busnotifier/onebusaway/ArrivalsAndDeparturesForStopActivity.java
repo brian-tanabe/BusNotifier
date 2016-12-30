@@ -17,12 +17,6 @@ public class ArrivalsAndDeparturesForStopActivity extends OneBusAwayApiInterface
     }
 
     public Model getArrivalsAndDeparturesForStop(String stopId) throws Throwable {
-        validateInputs();
-
         return makeApiCall(new ArrivalsAndDeparturesForStopRequestUrlProvider(stopId), ArrivalsAndDeparturesForStopModel.class);
-    }
-
-    private void validateInputs() {
-
     }
 }

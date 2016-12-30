@@ -8,7 +8,6 @@ import java.awt.image.RenderedImage;
 
 /**
  * Created by Brian on 11/24/16.
- *
  */
 public class GrowlNotificationFactory {
     private static final String HEADER_SUFFIX = "bus-notifier";

@@ -10,6 +10,7 @@
           class="com.btanabe.busnotifier.onebusaway.ArrivalsAndDeparturesForStopActivity">
         <constructor-arg name="keyProvider" ref="testOneBusAwayKeyProvider"/>
         <constructor-arg name="retryStrategy" ref="testRetryStrategy"/>
+        <property name="keyProvider" ref="testOneBusAwayKeyProvider"/>
     </bean>
 
 </beans>

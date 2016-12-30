@@ -15,6 +15,7 @@ import com.google.common.eventbus.EventBus;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 
@@ -22,31 +23,30 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 /**
  * Created by Brian on 11/19/16.
- * <p>
- * TODO
- * 1) Clean up that message, it's incorrect. (x)
- * 2) Add images to this
- * 3) Wire into the Application class
  */
 @Slf4j
-@Setter
 public class GrowlNotifier extends AbstractNotifier {
 
     private static final String NOTIFICATION_NAME = "Arrival Notification";
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private GrowlNotificationInfoFactory notificationInfoFactory;
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private GrowlApplicationInfoFactory applicationInfoFactory;
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private GrowlNotificationFactory notificationFactory;
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private GrowlClientFactory clientFactory;
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private ImageHelper iconCreator;
 
     public GrowlNotifier(GrowlNotificationInfoFactory notificationInfoFactory,

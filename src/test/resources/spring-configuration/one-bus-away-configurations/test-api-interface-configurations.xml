@@ -10,6 +10,8 @@
           class="com.bttanabe.busnotifier.test.utilities.TestableOneBusAwayApiInterface">
         <constructor-arg ref="testOneBusAwayKeyProvider"/>
         <constructor-arg ref="testRetryStrategy"/>
+        <property name="keyProvider" ref="testOneBusAwayKeyProvider"/>
+        <property name="retryer" ref="testRetryStrategy"/>
     </bean>
 
 </beans>

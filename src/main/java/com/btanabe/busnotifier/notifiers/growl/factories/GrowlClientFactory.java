@@ -4,24 +4,31 @@ import com.google.code.jgntp.Gntp;
 import com.google.code.jgntp.GntpApplicationInfo;
 import com.google.code.jgntp.GntpClient;
 import com.google.code.jgntp.GntpListener;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Brian on 11/20/16.
  */
 @Slf4j
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class GrowlClientFactory {
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private String host;
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private Integer port;
 
     @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private GntpListener listener;
 
     public GntpClient createClient(GntpApplicationInfo applicationInfo) throws Exception {

@@ -5,7 +5,6 @@ import com.btanabe.busnotifier.exceptions.ResourceNotFoundException;
 import com.btanabe.busnotifier.exceptions.RetriesExceededException;
 import com.btanabe.busnotifier.model.ArrivalsAndDeparturesForStopModel;
 import com.btanabe.busnotifier.onebusaway.requestparamter.ArrivalsAndDeparturesForStopRequestUrlProvider;
-import com.btanabe.busnotifier.secrets.KeyProvider;
 import com.bttanabe.busnotifier.test.factories.TestRetryListenerFactory;
 import com.bttanabe.busnotifier.test.integration.MockWebRequestBase;
 import com.bttanabe.busnotifier.test.utilities.TestableOneBusAwayApiInterface;
@@ -28,10 +27,6 @@ import static org.junit.Assert.assertThat;
  * <p>
  */
 public class OneBusAwayApiInterfaceTests extends MockWebRequestBase {
-
-    @Autowired
-    @Qualifier("testOneBusAwayKeyProvider")
-    private KeyProvider keyProvider;
 
     @Autowired
     @Qualifier("testOneBusAwayApiInterface")

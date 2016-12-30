@@ -7,28 +7,37 @@ import com.btanabe.busnotifier.onebusaway.tasks.OneBusAwayWebTask;
 import com.btanabe.busnotifier.secrets.KeyProvider;
 import com.github.rholder.retry.RetryException;
 import com.github.rholder.retry.Retryer;
+import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Brian on 11/26/16.
+ *
+ * TODO Figure out why it cannot autowire the retryer field when it's declared with its proper type,
+ * TODO Retryer<ApiOutputType>.
  */
 @Slf4j
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class OneBusAwayApiInterface<ApiOutputType extends Model> {
 
     @NonNull
-    private final KeyProvider keyProvider;
+    @Setter(onMethod = @__({@Autowired, @Qualifier("oneBusAwayKeyProvider")}))
+    protected KeyProvider keyProvider;
 
     @NonNull
-    private final Retryer<ApiOutputType> retryer;
+    @Setter(onMethod = @__({@Autowired, @Qualifier("oneBusAwayRetryStrategy")}))
+    protected Object retryer;
+
 
     protected Model makeApiCall(OneBusAwayRequestUrlProvider urlProvider, Class<ApiOutputType> outputClassType) throws Throwable {
         try {
-            return retryer.call(new OneBusAwayWebTask(keyProvider, urlProvider, outputClassType));
+            return ((Retryer<ApiOutputType>) retryer).call(new OneBusAwayWebTask(keyProvider, urlProvider, outputClassType));
         } catch (RetryException e) {
             throw new RetriesExceededException(e.getLastFailedAttempt().getExceptionCause());
         } catch (ExecutionException e) {
