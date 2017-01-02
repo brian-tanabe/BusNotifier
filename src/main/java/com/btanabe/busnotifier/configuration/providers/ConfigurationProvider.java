@@ -6,6 +6,8 @@ import com.btanabe.busnotifier.configuration.TravelWindow;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 /**
  * Created by Brian on 12/26/16.
  */
@@ -25,7 +27,7 @@ public interface ConfigurationProvider {
 
             @Override
             public ApplicationConfiguration getApplicationConfiguration() throws Exception {
-                return new ApplicationConfiguration(60);
+                return new ApplicationConfiguration(60, SECONDS);
             }
         };
     }

@@ -1,3 +1,4 @@
 {
-  "updateFrequencyInSeconds": 60
+  "updateFrequency": 60,
+  "updateFrequencyTimeUnit": "SECONDS"
 }

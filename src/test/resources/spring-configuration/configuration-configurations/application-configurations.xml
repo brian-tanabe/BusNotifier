@@ -4,6 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="expectedApplicationConfiguration" class="com.btanabe.busnotifier.configuration.ApplicationConfiguration">
-        <constructor-arg name="updateFrequencyInSeconds" value="60"/>
+        <constructor-arg name="updateFrequency" value="60"/>
+        <constructor-arg name="updateFrequencyTimeUnit" value="SECONDS"/>
+    </bean>
+
+    <bean id="testApplicationConfiguration" class="com.btanabe.busnotifier.configuration.ApplicationConfiguration">
+        <constructor-arg name="updateFrequency" value="1"/>
+        <constructor-arg name="updateFrequencyTimeUnit" value="MILLISECONDS"/>
     </bean>
 </beans>
