@@ -7,15 +7,16 @@
     <import resource="classpath*:/spring-configuration/application-configuration.xml"/>
 
     <!-- Test specific configurations: -->
-    <import resource="classpath*:/spring-configuration/response-configurations/one-bus-away-response-configuration.xml"/>
-    <import resource="classpath*:/spring-configuration/model-configurations/one-bus-away-response-models.xml"/>
-    <import resource="classpath*:/spring-configuration/test-web-requests.xml"/>
     <import resource="classpath*:/spring-configuration/common/test-secrets-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/configuration-configurations/test-application-configurations.xml"/>
+    <import resource="classpath*:/spring-configuration/configuration-configurations/test-travel-window-configurations.xml"/>
+    <import resource="classpath*:/spring-configuration/controller-configurations/test-update-controller-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/model-configurations/test-one-bus-away-response-models.xml"/>
+    <import resource="classpath*:/spring-configuration/model-configurations/test-route-at-stop-to-monitor-json.xml"/>
     <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-activity-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-api-interface-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-retry-strategy-configurations.xml"/>
-    <import resource="classpath*:/spring-configuration/configuration-configurations/travel-window-configurations.xml"/>
-    <import resource="classpath*:/spring-configuration/configuration-configurations/application-configurations.xml"/>
-    <import resource="classpath*:/spring-configuration/response-configurations/configuration-responses.xml"/>
-    <import resource="classpath*:/spring-configuration/model-configurations/route-at-stop-to-monitor-json.xml"/>
+    <import resource="classpath*:/spring-configuration/response-configurations/test-configuration-responses.xml"/>
+    <import resource="classpath*:/spring-configuration/response-configurations/test-one-bus-away-response-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/test-web-requests.xml"/>
 </beans>

@@ -4,9 +4,9 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="one-bus-away-agencies.xml"/>
-    <import resource="one-bus-away-routes.xml"/>
-    <import resource="one-bus-away-stops.xml"/>
+    <import resource="test-one-bus-away-agencies.xml"/>
+    <import resource="test-one-bus-away-routes.xml"/>
+    <import resource="test-one-bus-away-stops.xml"/>
 
     <!-- http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_12340.json?key={{{API_KEY}}} -->
     <bean id="expectedArrivalsAndDeparturesForStop1_12378Model"

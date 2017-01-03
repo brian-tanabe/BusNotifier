@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="testConfigurationProvider"
+          class="com.btanabe.busnotifier.configuration.providers.JsonFileConfigurationProvider">
+        <constructor-arg name="applicationConfigurationFile"
+                         value="classpath:test-configurations/test-application-configuration.json"/>
+        <constructor-arg name="travelWindowConfigurationFile"
+                         value="classpath:test-configurations/test-travel-window-configuration.json"/>
+    </bean>
+
+</beans>

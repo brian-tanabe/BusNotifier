@@ -4,6 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="listeningExecutorService" class="com.btanabe.busnotifier.factories.ThreadPoolFactory"
-          factory-method="getInstance"/>
+          factory-method="getListeningExecutorService"/>
+
+    <bean id="listeningScheduledExecutorService" class="com.btanabe.busnotifier.factories.ThreadPoolFactory"
+          factory-method="getListeningScheduledExecutorService"/>
 
 </beans>

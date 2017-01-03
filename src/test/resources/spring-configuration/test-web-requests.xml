@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <import resource="classpath:/spring-configuration/response-configurations/one-bus-away-response-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/response-configurations/test-one-bus-away-response-configuration.xml"/>
 
     <util:map id="urlMappedToPageContent" key-type="java.lang.String"
               value-type="java.lang.String">

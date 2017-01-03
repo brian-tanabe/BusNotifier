@@ -10,7 +10,7 @@ import com.github.jankroken.commandline.annotations.Required;
 import com.github.jankroken.commandline.annotations.ShortSwitch;
 import com.github.jankroken.commandline.annotations.SingleArgument;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -19,10 +19,13 @@ import java.util.List;
 /**
  * Created by Brian on 12/26/16.
  */
-@NoArgsConstructor
 @AllArgsConstructor
 public class JsonFileConfigurationProvider implements ConfigurationProvider {
+
+    @NonNull
     private File travelWindowConfigurationFile;
+
+    @NonNull
     private File applicationConfigurationFile;
 
     @Override

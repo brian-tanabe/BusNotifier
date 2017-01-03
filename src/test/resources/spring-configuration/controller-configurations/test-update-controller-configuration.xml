@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath*:spring-configuration/common/thread-pool-configuration.xml"/>
+    <import resource="classpath*:spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath*:spring-configuration/configuration-configurations/test-configuration-provider-configurations.xml"/>
+    <import resource="classpath*:spring-configuration/configuration-configurations/test-travel-window-configurations.xml"/>
+    <import resource="classpath*:spring-configuration/one-bus-away-configurations/test-activity-configurations.xml"/>
+
+    <bean name="mockTravelWindow" class="com.bttanabe.busnotifier.test.factories.MockTravelWindowFactory"
+          factory-method="createMockTravelWindow">
+        <constructor-arg name="travelWindow" ref="eightToTenThirtyRoute11TravelWindow"/>
+    </bean>
+
+    <bean id="messageFactoryTask" class="com.btanabe.busnotifier.tasks.MessageFactoryTask">
+        <constructor-arg name="eventBus" ref="notificationEventBus"/>
+        <constructor-arg name="arrivalsAndDeparturesForStopActivity" ref="testArrivalsAndDeparturesForStopActivity"/>
+        <constructor-arg name="travelWindowList" ref="mockTravelWindow"/>
+    </bean>
+
+    <bean id="testUpdateController" class="com.btanabe.busnotifier.application.UpdateController">
+        <property name="eventBus" ref="notificationEventBus"/>
+        <property name="configurationProvider" ref="testConfigurationProvider"/>
+        <property name="scheduledThreadPool" ref="listeningScheduledExecutorService"/>
+        <property name="messageFactoryTask" ref="messageFactoryTask"/>
+    </bean>
+
+</beans>

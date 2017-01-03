@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="time-configurations.xml"/>
-    <import resource="route-at-stop-to-monitor.xml"/>
+    <import resource="test-route-at-stop-to-monitor.xml"/>
 
     <bean id="seventeenThirtyToTwentyThreeThirtyRoute11TravelWindow"
           class="com.btanabe.busnotifier.configuration.TravelWindow">
