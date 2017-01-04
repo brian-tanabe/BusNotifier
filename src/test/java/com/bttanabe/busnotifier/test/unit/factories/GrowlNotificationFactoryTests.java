@@ -11,7 +11,6 @@ import com.google.code.jgntp.GntpApplicationInfo;
 import com.google.code.jgntp.GntpClient;
 import com.google.code.jgntp.GntpNotification;
 import com.google.common.eventbus.EventBus;
-import lombok.NonNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,14 +23,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.imageio.ImageIO;
-
 import java.time.LocalDateTime;
 
 import static com.btanabe.busnotifier.utilities.TimeHelper.getLocalDateTime;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -90,7 +87,7 @@ public class GrowlNotificationFactoryTests {
     @Test
     public void shouldBeAbleToPostNotificationsWithTheCorrectTitle() {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
-        blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
+        messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
         assertThat(capturePostedNotification().getTitle(), is(equalTo(String.format("Route %s: %d minutes away", arrivalMessage.getRouteName(), TimeHelper.getTimeDifferenceInMinutes(LocalDateTime.now(), arrivalMessage.getExpectedArrivalTime())))));
     }
@@ -98,7 +95,7 @@ public class GrowlNotificationFactoryTests {
     @Test
     public void shouldBeAbleToPostNotificationsWithTheCorrectText() {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
-        blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
+        messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
         assertThat(capturePostedNotification().getText(), is(equalTo("E Madison St & 25th Ave E")));
     }
@@ -106,7 +103,7 @@ public class GrowlNotificationFactoryTests {
     @Test
     public void shouldBeAbleToPostNotificationsWithTheCorrectApplicationName() {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
-        blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
+        messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
         assertThat(capturePostedNotification().getApplicationName(), is(equalTo("Bus Notifier")));
     }
@@ -114,7 +111,7 @@ public class GrowlNotificationFactoryTests {
     @Test
     public void shouldBeAbleToPostNotificationsWithTheCorrectName() {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
-        blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
+        messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
         assertThat(capturePostedNotification().getName(), is(equalTo("Arrival Notification")));
     }
@@ -122,7 +119,7 @@ public class GrowlNotificationFactoryTests {
     @Test
     public void shouldBeAbleToPostNotificationsWithTheCorrectIcon() throws Exception {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
-        blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
+        messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
         ImageComparator.assertImageEquals(capturePostedNotification().getIconImage(), ImageIO.read(expectedRoute11Image.getFile()));
     }
@@ -131,21 +128,6 @@ public class GrowlNotificationFactoryTests {
         BusArrivalMessage message = new BusArrivalMessage(getLocalDateTime(expectedArrivalTime), routeName, routeLocation);
         eventBus.post(message);
         return message;
-    }
-
-    private void blockUntilAcknowledgeMessageIsReceived(@NonNull AcknowledgedMessage expectedAcknowledgeMessage) {
-
-        long waitTimeout = 5000;
-        for (long waitStartTime = System.currentTimeMillis(); System.currentTimeMillis() < waitStartTime + waitTimeout; ) {
-            if (messageListener.getAcknowledgedMessages().contains(expectedAcknowledgeMessage)) {
-                return;
-            }
-        }
-
-        fail(String.format("Timed out after %d milliseconds waiting for BusArrivalMessage=[%s].  These messages were received=[]",
-                waitTimeout,
-                expectedAcknowledgeMessage.getAcknowledgedMessage(),
-                messageListener.getAcknowledgedMessages()));
     }
 
     private GntpNotification capturePostedNotification() {

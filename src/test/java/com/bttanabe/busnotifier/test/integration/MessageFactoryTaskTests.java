@@ -5,7 +5,7 @@ import com.btanabe.busnotifier.message.internal.BusArrivalMessage;
 import com.btanabe.busnotifier.onebusaway.ArrivalsAndDeparturesForStopActivity;
 import com.btanabe.busnotifier.tasks.MessageFactoryTask;
 import com.bttanabe.busnotifier.test.factories.MockTravelWindowFactory;
-import com.bttanabe.busnotifier.test.utilities.ModelListener;
+import com.bttanabe.busnotifier.test.utilities.BusArrivalMessageListener;
 import com.google.common.eventbus.EventBus;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,12 +37,12 @@ public class MessageFactoryTaskTests extends MockWebRequestBase {
     @Qualifier("testArrivalsAndDeparturesForStopActivity")
     private ArrivalsAndDeparturesForStopActivity activity;
 
-    private ModelListener modelListener;
+    private BusArrivalMessageListener busArrivalMessageListener;
 
     @Before
     public void registerModelListener() {
-        modelListener = new ModelListener();
-        eventBus.register(modelListener);
+        busArrivalMessageListener = new BusArrivalMessageListener();
+        eventBus.register(busArrivalMessageListener);
     }
 
     /**
@@ -52,9 +52,9 @@ public class MessageFactoryTaskTests extends MockWebRequestBase {
     public void shouldBeAbleToDetermineWhenRoutesAreComing() throws Throwable {
         TravelWindow mockTravelWindow = MockTravelWindowFactory.createMockTravelWindow(testTravelWindow);
 
-        new MessageFactoryTask(eventBus, activity, Arrays.asList(mockTravelWindow)).call();
+        new MessageFactoryTask(eventBus, activity, Arrays.asList(mockTravelWindow)).run();
 
-        assertThat(modelListener.getArrivalMessages(), hasItems(createBusArrivalMessage(mockTravelWindow, "11", 1480191995000L), createBusArrivalMessage(mockTravelWindow, "11", 1480193036000L)));
+        assertThat(busArrivalMessageListener.getArrivalMessages(), hasItems(createBusArrivalMessage(mockTravelWindow, "11", 1480191995000L), createBusArrivalMessage(mockTravelWindow, "11", 1480193036000L)));
     }
 
     private BusArrivalMessage createBusArrivalMessage(TravelWindow travelWindow, String routeName, Long arrivalTime) {

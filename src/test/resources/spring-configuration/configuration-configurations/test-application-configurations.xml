@@ -9,7 +9,7 @@
     </bean>
 
     <bean id="testApplicationConfiguration" class="com.btanabe.busnotifier.configuration.ApplicationConfiguration">
-        <constructor-arg name="updateFrequency" value="1"/>
+        <constructor-arg name="updateFrequency" value="10"/>
         <constructor-arg name="updateFrequencyTimeUnit" value="MILLISECONDS"/>
     </bean>
 </beans>

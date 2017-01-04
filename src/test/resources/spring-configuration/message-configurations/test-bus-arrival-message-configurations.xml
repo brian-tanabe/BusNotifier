@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="test" class="com.btanabe.busnotifier.message.internal.BusArrivalMessage">
-        <constructor-arg name="stopLocation" value="E Madison St &amp; 25th Ave E" />
-        <constructor-arg name="expectedArrivalTime" value=""/>
+    <bean id="route11AtMadisonAnd25thStTwelveTwentySix"
+          class="com.btanabe.busnotifier.message.internal.BusArrivalMessage">
         <constructor-arg name="routeName" value="11"/>
+        <constructor-arg name="stopLocation" value="E Madison St &amp; 25th Ave E"/>
+        <constructor-arg name="expectedArrivalTime">
+            <bean class="java.time.LocalDateTime" factory-method="of">
+                <constructor-arg type="int" value="2016"/>
+                <constructor-arg type="java.time.Month" value="NOVEMBER"/>
+                <constructor-arg type="int" value="26"/>
+                <constructor-arg type="int" value="12"/>
+                <constructor-arg type="int" value="26"/>
+                <constructor-arg type="int" value="35"/>
+            </bean>
+        </constructor-arg>
     </bean>
+
+    <bean id="route11AtMadisonAnd25thStTwelveFortyThree"
+          class="com.btanabe.busnotifier.message.internal.BusArrivalMessage">
+        <constructor-arg name="routeName" value="11"/>
+        <constructor-arg name="stopLocation" value="E Madison St &amp; 25th Ave E"/>
+        <constructor-arg name="expectedArrivalTime">
+            <bean class="java.time.LocalDateTime" factory-method="of">
+                <constructor-arg type="int" value="2016"/>
+                <constructor-arg type="java.time.Month" value="NOVEMBER"/>
+                <constructor-arg type="int" value="26"/>
+                <constructor-arg type="int" value="12"/>
+                <constructor-arg type="int" value="43"/>
+                <constructor-arg type="int" value="56"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <util:list id="expectedRoute11At25thAndMadisonStList"
+               value-type="com.btanabe.busnotifier.message.internal.BusArrivalMessage">
+        <ref bean="route11AtMadisonAnd25thStTwelveTwentySix"/>
+        <ref bean="route11AtMadisonAnd25thStTwelveFortyThree"/>
+    </util:list>
+
 </beans>

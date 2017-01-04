@@ -16,9 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
-import static java.time.LocalDateTime.*;
+import static java.time.LocalDateTime.now;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -26,7 +25,7 @@ import static java.util.stream.Collectors.toList;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class MessageFactoryTask implements Callable<Void> {
+public class MessageFactoryTask implements Runnable {
 
     @NonNull
     private final EventBus eventBus;
@@ -38,7 +37,7 @@ public class MessageFactoryTask implements Callable<Void> {
     private final List<TravelWindow> travelWindowList;
 
     @Override
-    public Void call() throws Exception {
+    public void run() {
         for (TravelWindow travelWindow : travelWindowList) {
             List<ArrivalsAndDepartures> arrivalsAndDeparturesForRouteAtStop = getArrivalsAndDeparturesForStopAndRouteId(travelWindow);
             List<ArrivalsAndDepartures> sortedArrivalsAndDeparturesForRouteAtStop = sortArrivalsAndDeparturesByDepartureTime(arrivalsAndDeparturesForRouteAtStop);
@@ -46,7 +45,6 @@ public class MessageFactoryTask implements Callable<Void> {
             List<BusArrivalMessage> arrivalMessages = createBusArrivalMessages(travelWindow, tripsToDisplay);
             postBusArrivalMessagesToMessageBus(arrivalMessages);
         }
-        return null;
     }
 
     private List<ArrivalsAndDepartures> getArrivalsAndDeparturesForStopAndRouteId(TravelWindow travelWindow) {

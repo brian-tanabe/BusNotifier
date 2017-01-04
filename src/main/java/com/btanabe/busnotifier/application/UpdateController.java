@@ -15,12 +15,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import static java.util.Objects.isNull;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+
 /**
  * Created by Brian on 12/29/16.
  */
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateController {
+    private static final Long DEFAULT_SHUTDOWN_WAIT_TIMEOUT = 1000L;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -42,12 +46,20 @@ public class UpdateController {
         final Integer updateFrequency = configurationProvider.getApplicationConfiguration().getUpdateFrequency();
         final TimeUnit updateFrequencyTimeUnit = configurationProvider.getApplicationConfiguration().getUpdateFrequencyTimeUnit();
 
-        scheduledThreadPool.schedule(messageFactoryTask, updateFrequency, updateFrequencyTimeUnit);
+        scheduledThreadPool.scheduleAtFixedRate(messageFactoryTask, 0L, updateFrequency, updateFrequencyTimeUnit);
     }
 
     @Subscribe
-    public void shutdownThreadPool(ShutdownSignal shutdownSignal) {
-        scheduledThreadPool.shutdown();
+    public void shutdownThreadPool(ShutdownSignal shutdownSignal) throws InterruptedException {
+        long waitTimeout = isNull(shutdownSignal.getWaitTimeout()) ? DEFAULT_SHUTDOWN_WAIT_TIMEOUT : shutdownSignal.getWaitTimeout();
+        TimeUnit waitTimeoutTimeUnit = isNull(shutdownSignal.getWaitTimeoutTimeUnit()) ? MILLISECONDS : shutdownSignal.getWaitTimeoutTimeUnit();
+
+        shutdownThreadPool(waitTimeout, waitTimeoutTimeUnit);
+
         eventBus.post(new AcknowledgedMessage(shutdownSignal));
+    }
+
+    private void shutdownThreadPool(long timeout, TimeUnit waitTimeout) throws InterruptedException {
+        scheduledThreadPool.awaitTermination(timeout, waitTimeout);
     }
 }

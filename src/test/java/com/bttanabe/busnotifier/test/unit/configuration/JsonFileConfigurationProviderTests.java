@@ -32,7 +32,7 @@ public class JsonFileConfigurationProviderTests {
     private List<TravelWindow> expectedTravelWindowList;
 
     @Autowired
-    @Qualifier("expectedApplicationConfiguration")
+    @Qualifier("testApplicationConfiguration")
     private ApplicationConfiguration expectedApplicationConfiguration;
 
     @Test

@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Brian on 12/12/16.
  */
 @Getter
-public class ModelListener {
+public class BusArrivalMessageListener {
     private List<BusArrivalMessage> arrivalMessages = new ArrayList<>();
 
     @Subscribe

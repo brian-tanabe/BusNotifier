@@ -72,7 +72,7 @@ public class JsonDeerializerTests {
     private String applicationConfigurationString;
 
     @Autowired
-    @Qualifier("expectedApplicationConfiguration")
+    @Qualifier("testApplicationConfiguration")
     private ApplicationConfiguration expectedApplicationConfiguration;
 
     @Test

@@ -11,6 +11,7 @@
     <import resource="classpath*:/spring-configuration/configuration-configurations/test-application-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/configuration-configurations/test-travel-window-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/controller-configurations/test-update-controller-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/message-configurations/test-bus-arrival-message-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/model-configurations/test-one-bus-away-response-models.xml"/>
     <import resource="classpath*:/spring-configuration/model-configurations/test-route-at-stop-to-monitor-json.xml"/>
     <import resource="classpath*:/spring-configuration/one-bus-away-configurations/test-activity-configurations.xml"/>

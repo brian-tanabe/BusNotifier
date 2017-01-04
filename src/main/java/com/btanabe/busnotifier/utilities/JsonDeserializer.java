@@ -9,7 +9,7 @@ import java.io.IOException;
  * Created by Brian on 11/26/16.
  */
 public class JsonDeserializer {
-    private static ObjectMapper mapper = new ObjectMapper();
+    private final static ObjectMapper mapper = new ObjectMapper();
 
     public static <T> T deserializeResponse(String serializedResponse, Class<T> outputClazz) throws IOException {
         return mapper.readValue(serializedResponse, outputClazz);
