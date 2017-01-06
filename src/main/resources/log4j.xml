@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<log4j:configuration debug="true"
-                     xmlns:log4j='http://jakarta.apache.org/log4j/'>
+<log4j:configuration debug="true">
 
-    <appender name="file" class="org.apache.log4j.RollingFileAppender">
-        <param name="append" value="false"/>
-        <param name="maxFileSize" value="10MB"/>
-        <param name="maxBackupIndex" value="5"/>
-        <!-- For Tomcat -->
+    <appender name="ROLL" class="org.apache.log4j.RollingFileAppender">
+        <param name="append" value="true"/>
         <param name="file" value="logs/application.log"/>
+
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="logs/archived/application.%d{yyyy-MM-dd-HH}.log.gz"/>
+            <param name="ActiveFileName" value="logs/application.log"/>
+        </rollingPolicy>
+
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern"
-                   value="%d [%p] %c{10}.%t: %m%n"/>
+            <param name="ConversionPattern" value="%d [%p] %c (%t): %m%n"/>
         </layout>
     </appender>
 
+    <!-- Set all messages from this application to INFO -->
+    <logger name="com.btanabe.busnotifier">
+        <param name="level" value="info"/>
+        <appender-ref ref="ROLL"/>
+    </logger>
+
+    <!-- Setting the root logger level to "ERROR" forces all third-party messages to be at least of level ERROR -->
     <root>
-        <level value="INFO"/>
-        <appender-ref ref="file"/>
+        <param name="level" value="error"/>
+        <appender-ref ref="ROLL"/>
     </root>
 
 </log4j:configuration>

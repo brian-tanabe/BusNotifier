@@ -38,6 +38,8 @@ public class MessageFactoryTask implements Runnable {
 
     @Override
     public void run() {
+        log.info(String.format("Checking schedules for the following travel windows=%s", travelWindowList));
+
         for (TravelWindow travelWindow : travelWindowList) {
             List<ArrivalsAndDepartures> arrivalsAndDeparturesForRouteAtStop = getArrivalsAndDeparturesForStopAndRouteId(travelWindow);
             List<ArrivalsAndDepartures> sortedArrivalsAndDeparturesForRouteAtStop = sortArrivalsAndDeparturesByDepartureTime(arrivalsAndDeparturesForRouteAtStop);
@@ -81,7 +83,6 @@ public class MessageFactoryTask implements Runnable {
     private List<BusArrivalMessage> createBusArrivalMessages(TravelWindow travelWindow, List<ArrivalsAndDepartures> arrivalsAndDepartures) {
         List<BusArrivalMessage> busArrivalMessages = new ArrayList<>();
         for (ArrivalsAndDepartures trip : arrivalsAndDepartures) {
-
             LocalDateTime expectedArrivalTime = DepartureTimeHelper.getDepartureLocalDateTime(trip);
             String routeName = trip.getRouteShortName();
             String stopLocation = travelWindow.getRouteAtStopToMonitor().getStopName();

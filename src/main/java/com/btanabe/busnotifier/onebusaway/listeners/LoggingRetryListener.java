@@ -3,6 +3,7 @@ package com.btanabe.busnotifier.onebusaway.listeners;
 import com.github.rholder.retry.Attempt;
 import com.github.rholder.retry.RetryListener;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**
  * Created by Brian on 12/11/16.
@@ -20,10 +21,10 @@ public class LoggingRetryListener implements RetryListener {
     }
 
     private <V> void logSuccessAttemptMessage(Attempt<V> attempt) {
-        log.info(String.format("Successful retry attempt: count=[%d], time since first attempt=[%d]", attempt.getAttemptNumber(), attempt.getDelaySinceFirstAttempt()));
+        log.info(String.format("Successful request: retries needed=[%d], time since first attempt=[%d ms]", attempt.getAttemptNumber() - 1, attempt.getDelaySinceFirstAttempt()));
     }
 
     private <V> void logUnsuccessfulAttemptMessage(Attempt<V> attempt) {
-        log.error(String.format("Unsuccessful retry attempt: count=[%d], time since first attempt=[%d], cause=[%s]", attempt.getAttemptNumber(), attempt.getDelaySinceFirstAttempt(), attempt.getExceptionCause().getClass().getName()));
+        log.error(String.format("Unsuccessful request: attempt count=[%d], time since first attempt=[%d ms], cause=[%s]", attempt.getAttemptNumber(), attempt.getDelaySinceFirstAttempt(), ExceptionUtils.getRootCause(attempt.getExceptionCause()).getClass().getSimpleName()));
     }
 }
