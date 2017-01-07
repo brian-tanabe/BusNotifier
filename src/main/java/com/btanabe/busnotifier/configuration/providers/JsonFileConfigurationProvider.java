@@ -2,6 +2,7 @@ package com.btanabe.busnotifier.configuration.providers;
 
 import com.btanabe.busnotifier.configuration.ApplicationConfiguration;
 import com.btanabe.busnotifier.configuration.TravelWindow;
+import com.btanabe.busnotifier.exceptions.ResourceNotFoundException;
 import com.btanabe.busnotifier.utilities.JsonDeserializer;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.github.jankroken.commandline.annotations.LongSwitch;
@@ -10,6 +11,7 @@ import com.github.jankroken.commandline.annotations.Required;
 import com.github.jankroken.commandline.annotations.ShortSwitch;
 import com.github.jankroken.commandline.annotations.SingleArgument;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.apache.commons.io.FileUtils;
 
@@ -20,6 +22,7 @@ import java.util.List;
  * Created by Brian on 12/26/16.
  */
 @AllArgsConstructor
+@NoArgsConstructor
 public class JsonFileConfigurationProvider implements ConfigurationProvider {
 
     @NonNull
@@ -44,8 +47,12 @@ public class JsonFileConfigurationProvider implements ConfigurationProvider {
     @ShortSwitch("tc")
     @SingleArgument
     @Required
-    public void setTravelWindowConfigurationFile(String fileName) {
+    public void setTravelWindowConfigurationFile(@NonNull String fileName) {
         travelWindowConfigurationFile = new File(fileName);
+
+        if(!travelWindowConfigurationFile.isFile()){
+            throw new ResourceNotFoundException();
+        }
     }
 
     @Option
@@ -53,7 +60,11 @@ public class JsonFileConfigurationProvider implements ConfigurationProvider {
     @ShortSwitch("ac")
     @SingleArgument
     @Required
-    public void setApplicationConfigurationFile(String fileName) {
+    public void setApplicationConfigurationFile(@NonNull String fileName) {
         applicationConfigurationFile = new File(fileName);
+
+        if(!applicationConfigurationFile.isFile()){
+            throw new ResourceNotFoundException();
+        }
     }
 }

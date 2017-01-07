@@ -1,6 +1,7 @@
 package com.btanabe.busnotifier.model.types;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
  * Created by Brian on 11/26/16.
  */
 @Data
+@ToString
 public class ArrivalsAndDepartures {
     private Trip trip;
     private Long serviceDate;

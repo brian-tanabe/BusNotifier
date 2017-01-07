@@ -40,15 +40,22 @@ public class MessageFactoryTask implements Runnable {
     public void run() {
         log.info(String.format("Checking schedules for the following travel windows=%s", travelWindowList));
 
-        for (TravelWindow travelWindow : travelWindowList) {
+        travelWindowList.forEach(travelWindow -> {
             List<ArrivalsAndDepartures> arrivalsAndDeparturesForRouteAtStop = getArrivalsAndDeparturesForStopAndRouteId(travelWindow);
             List<ArrivalsAndDepartures> sortedArrivalsAndDeparturesForRouteAtStop = sortArrivalsAndDeparturesByDepartureTime(arrivalsAndDeparturesForRouteAtStop);
             List<ArrivalsAndDepartures> tripsToDisplay = filterOutTripsWhichAreNotInTheTravelWindowOrAreNotDepartingSoonEnough(travelWindow, sortedArrivalsAndDeparturesForRouteAtStop);
-            List<BusArrivalMessage> arrivalMessages = createBusArrivalMessages(travelWindow, tripsToDisplay);
-            postBusArrivalMessagesToMessageBus(arrivalMessages);
-        }
+            postBusArrivalMessagesToMessageBus(createBusArrivalMessages(travelWindow, tripsToDisplay));
+        });
     }
 
+    /**
+     * This helper method calls the OneBusAway API for each stop the user wants to monitor requesting the that stop's
+     * route schedules.  These schedules will be used to determine if a route's bus is arriving within the user-specified
+     * notification window
+     *
+     * @param travelWindow
+     * @return
+     */
     private List<ArrivalsAndDepartures> getArrivalsAndDeparturesForStopAndRouteId(TravelWindow travelWindow) {
         try {
             ArrivalsAndDeparturesForStopModel model = (ArrivalsAndDeparturesForStopModel) arrivalsAndDeparturesForStopActivity.getArrivalsAndDeparturesForStop(travelWindow.getRouteAtStopToMonitor().getStopId());
@@ -72,6 +79,8 @@ public class MessageFactoryTask implements Runnable {
      * @return
      */
     private List<ArrivalsAndDepartures> filterOutTripsWhichAreNotInTheTravelWindowOrAreNotDepartingSoonEnough(TravelWindow travelWindow, List<ArrivalsAndDepartures> arrivalsAndDepartures) {
+        log.info(String.format("Found the following ArrivalsAndDepartures for the monitored stops=%s", arrivalsAndDepartures));
+
         return arrivalsAndDepartures.stream().filter(trip -> {
             boolean isWithinTimeWindow = travelWindow.isTimeWithinWindow(DepartureTimeHelper.getDepartureLocalDateTime(trip));
             boolean isDepartingSoonEnough = travelWindow.shouldSendNotification(TimeHelper.getTimeDifferenceInMinutes(now(), DepartureTimeHelper.getDepartureLocalDateTime(trip)));
@@ -80,6 +89,16 @@ public class MessageFactoryTask implements Runnable {
         }).collect(toList());
     }
 
+    /**
+     * This method creates a list of internal BusArrivalMessages containing the route, stop, and schedule informations
+     * needed for the Notifiers to display messages to the user.
+     * <p>
+     * TODO handle timezones in this function
+     *
+     * @param travelWindow
+     * @param arrivalsAndDepartures
+     * @return
+     */
     private List<BusArrivalMessage> createBusArrivalMessages(TravelWindow travelWindow, List<ArrivalsAndDepartures> arrivalsAndDepartures) {
         List<BusArrivalMessage> busArrivalMessages = new ArrayList<>();
         for (ArrivalsAndDepartures trip : arrivalsAndDepartures) {
@@ -99,6 +118,7 @@ public class MessageFactoryTask implements Runnable {
      * @param busArrivalMessages
      */
     private void postBusArrivalMessagesToMessageBus(List<BusArrivalMessage> busArrivalMessages) {
+        log.info(String.format("After filtering out the trips which do not arrive within the TravelWindow, the following BusArrivalMessages will be displayed=%s", busArrivalMessages));
         busArrivalMessages.forEach(message -> eventBus.post(message));
     }
 }

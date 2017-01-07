@@ -24,6 +24,12 @@ public class LoggingRetryListener implements RetryListener {
         log.info(String.format("Successful request: retries needed=[%d], time since first attempt=[%d ms]", attempt.getAttemptNumber() - 1, attempt.getDelaySinceFirstAttempt()));
     }
 
+    /**
+     * TODO FIGURE OUT IF ITEMS WITHOUT RESULTS WILL ALWAYS HAVE AN EXCEPTION.  I'M NOT SURE IF THEY WILL.
+     *
+     * @param attempt
+     * @param <V>
+     */
     private <V> void logUnsuccessfulAttemptMessage(Attempt<V> attempt) {
         log.error(String.format("Unsuccessful request: attempt count=[%d], time since first attempt=[%d ms], cause=[%s]", attempt.getAttemptNumber(), attempt.getDelaySinceFirstAttempt(), ExceptionUtils.getRootCause(attempt.getExceptionCause()).getClass().getSimpleName()));
     }

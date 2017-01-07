@@ -4,6 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="classpath*:spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath*:spring-configuration/common/thread-pool-configuration.xml"/>
 
+    <bean id="updateController" class="com.btanabe.busnotifier.application.UpdateController">
+        <property name="eventBus" ref="notificationEventBus"/>
+        <property name="scheduledThreadPool" ref="listeningScheduledExecutorService"/>
+    </bean>
 
 </beans>

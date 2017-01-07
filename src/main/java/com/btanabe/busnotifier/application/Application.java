@@ -2,15 +2,26 @@ package com.btanabe.busnotifier.application;
 
 import com.btanabe.busnotifier.configuration.providers.ConfigurationProvider;
 import com.btanabe.busnotifier.configuration.providers.JsonFileConfigurationProvider;
+import com.btanabe.busnotifier.notifiers.AbstractNotifier;
+import com.btanabe.busnotifier.notifiers.GrowlNotifier;
+import com.btanabe.busnotifier.onebusaway.ArrivalsAndDeparturesForStopActivity;
+import com.btanabe.busnotifier.tasks.MessageFactoryTask;
 import com.github.jankroken.commandline.CommandLineParser;
 import com.github.jankroken.commandline.OptionStyle;
 import com.google.common.eventbus.AsyncEventBus;
+import com.google.common.util.concurrent.ListeningScheduledExecutorService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.util.Objects.requireNonNull;
+import static java.util.stream.Collectors.toList;
 
 /**
  * Created by Brian on 12/29/16.
@@ -18,12 +29,27 @@ import java.lang.reflect.InvocationTargetException;
 @Slf4j
 public class Application {
 
-    private AsyncEventBus eventBus;
+    private ConfigurationProvider configurationProvider;
 
-    public Application(String[] arguments) {
+    private AsyncEventBus eventBus;
+    private ListeningScheduledExecutorService scheduledExecutorService;
+
+    private ArrivalsAndDeparturesForStopActivity arrivalsAndDeparturesForStopActivity;
+    private UpdateController updateController;
+
+    private List<AbstractNotifier> notifierList = new ArrayList<>();
+
+    public Application(String[] arguments) throws Exception {
         logApplicationStartup();
 
-        ConfigurationProvider configurationProvider = parseCommandLineArguments(arguments);
+        configurationProvider = parseCommandLineArguments(arguments);
+        loadDependencies();
+        createUpdateController(configurationProvider);
+        updateController.startUpdateHeartbeat();
+
+        while (!scheduledExecutorService.isShutdown()) {
+            Thread.sleep(10);
+        }
 
         logApplicationShutdown();
     }
@@ -31,7 +57,7 @@ public class Application {
     private ConfigurationProvider parseCommandLineArguments(String[] arguments) {
         try {
             ConfigurationProvider configurationProvider = CommandLineParser.parse(JsonFileConfigurationProvider.class, arguments, OptionStyle.SIMPLE);
-            log.info(String.format("Command line argument configuration: ApplicationConfiguration=[%s], TravelWindows=%s", configurationProvider.getApplicationConfiguration(), configurationProvider.getTravelWindowsToMonitor()));
+            log.info(String.format("Command line argument configuration: arguments=%s, ApplicationConfiguration=[%s], TravelWindows=%s", Arrays.stream(arguments).collect(toList()), configurationProvider.getApplicationConfiguration(), configurationProvider.getTravelWindowsToMonitor()));
             return configurationProvider;
         } catch (IllegalAccessException | InstantiationException | InvocationTargetException exception) {
             log.error(String.format("Unable to read command line parameters.  Stack trace: %s", ExceptionUtils.getStackTrace(exception)));
@@ -51,13 +77,22 @@ public class Application {
     private void loadDependencies() throws Exception {
         ApplicationContext context = new ClassPathXmlApplicationContext("./spring-configuration/application-configuration.xml");
 
-//        applicationInfoFactory = (GrowlApplicationInfoFactory) context.getBean("growlApplicationInfoFactory");
-//        notificationInfoFactory = (GrowlNotificationInfoFactory) context.getBean("growlNotificationInfoFactory");
-//        notificationFactory = (GrowlNotificationFactory) context.getBean("growlNotificationFactory");
-//        clientFactory = (GrowlClientFactory) context.getBean("growlClientFactory");
+        eventBus = (AsyncEventBus) requireNonNull(context.getBean("notificationEventBus"), "notificationEventBus");
+        scheduledExecutorService = (ListeningScheduledExecutorService) requireNonNull(context.getBean("listeningScheduledExecutorService"), "listeningScheduledExecutorService");
+        arrivalsAndDeparturesForStopActivity = (ArrivalsAndDeparturesForStopActivity) requireNonNull(context.getBean("arrivalsAndDeparturesForStopActivity"), "arrivalsAndDeparturesForStopActivity");
 
-        eventBus = (AsyncEventBus) context.getBean("notificationEventBus");
-//        growlNotifier = (GrowlNotifier) context.getBean("growlNotifier");
+        GrowlNotifier growlNotifier = (GrowlNotifier) context.getBean("growlNotifier");
+        notifierList.add(growlNotifier);
+    }
+
+    private void createUpdateController(ConfigurationProvider configurationProvider) throws Exception {
+        requireNonNull(eventBus, "eventBus");
+        requireNonNull(arrivalsAndDeparturesForStopActivity, "arrivalsAndDeparturesForStopActivity");
+        requireNonNull(configurationProvider, "configurationProvider");
+        requireNonNull(configurationProvider.getTravelWindowsToMonitor(), "travelWindowList");
+
+        MessageFactoryTask messageFactoryTask = new MessageFactoryTask(eventBus, arrivalsAndDeparturesForStopActivity, configurationProvider.getTravelWindowsToMonitor());
+        updateController = new UpdateController(configurationProvider, scheduledExecutorService, eventBus, messageFactoryTask);
     }
 
     private void logApplicationStartup() {
@@ -70,5 +105,6 @@ public class Application {
 
     public static void main(String[] arguments) throws Exception {
         Application application = new Application(arguments);
+        application.loadDependencies();
     }
 }

@@ -5,7 +5,6 @@
 
     <import resource="classpath:spring-configuration/growl-configurations/gntp-configuration.xml"/>
     <import resource="classpath:spring-configuration/common/secrets-configuration.xml"/>
-    <import resource="classpath:spring-configuration/controller-configurations/update-controller-configuration.xml"/>
     <import resource="classpath:spring-configuration/one-bus-away-configurations/retry-strategy-configurations.xml"/>
     <import resource="classpath:spring-configuration/activity-configurations/arrivals-and-departures-for-stop-activity-configuration.xml"/>
 
