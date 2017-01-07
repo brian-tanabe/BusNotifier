@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.btanabe.busnotifier.application.Version.getVersion;
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.toList;
 
@@ -39,12 +40,16 @@ public class Application {
 
     private List<AbstractNotifier> notifierList = new ArrayList<>();
 
+
     public Application(String[] arguments) throws Exception {
         logApplicationStartup();
 
         configurationProvider = parseCommandLineArguments(arguments);
+
         loadDependencies();
-        createUpdateController(configurationProvider);
+    }
+
+    public void startApplication() throws Exception {
         updateController.startUpdateHeartbeat();
 
         while (!scheduledExecutorService.isShutdown()) {
@@ -82,21 +87,24 @@ public class Application {
         arrivalsAndDeparturesForStopActivity = (ArrivalsAndDeparturesForStopActivity) requireNonNull(context.getBean("arrivalsAndDeparturesForStopActivity"), "arrivalsAndDeparturesForStopActivity");
 
         GrowlNotifier growlNotifier = (GrowlNotifier) context.getBean("growlNotifier");
+        eventBus.register(growlNotifier);
         notifierList.add(growlNotifier);
+
+        updateController = createUpdateController(configurationProvider);
     }
 
-    private void createUpdateController(ConfigurationProvider configurationProvider) throws Exception {
+    private UpdateController createUpdateController(ConfigurationProvider configurationProvider) throws Exception {
         requireNonNull(eventBus, "eventBus");
         requireNonNull(arrivalsAndDeparturesForStopActivity, "arrivalsAndDeparturesForStopActivity");
         requireNonNull(configurationProvider, "configurationProvider");
         requireNonNull(configurationProvider.getTravelWindowsToMonitor(), "travelWindowList");
 
         MessageFactoryTask messageFactoryTask = new MessageFactoryTask(eventBus, arrivalsAndDeparturesForStopActivity, configurationProvider.getTravelWindowsToMonitor());
-        updateController = new UpdateController(configurationProvider, scheduledExecutorService, eventBus, messageFactoryTask);
+        return new UpdateController(configurationProvider, scheduledExecutorService, eventBus, messageFactoryTask);
     }
 
     private void logApplicationStartup() {
-        log.info("Starting application");
+        log.info(String.format("Starting application.  Version: %s", getVersion()));
     }
 
     private void logApplicationShutdown() {
@@ -105,6 +113,6 @@ public class Application {
 
     public static void main(String[] arguments) throws Exception {
         Application application = new Application(arguments);
-        application.loadDependencies();
+        application.startApplication();
     }
 }

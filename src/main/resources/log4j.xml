@@ -4,7 +4,7 @@
 
     <appender name="ROLL" class="org.apache.log4j.RollingFileAppender">
         <param name="append" value="true"/>
-        <param name="file" value="logs/application.log"/>
+        <!--<param name="file" value="logs/application.log"/>-->
 
         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
             <param name="FileNamePattern" value="logs/archived/application.%d{yyyy-MM-dd-HH}.log.gz"/>
@@ -16,16 +16,28 @@
         </layout>
     </appender>
 
+    <appender name="rollingFile" class="org.apache.log4j.rolling.RollingFileAppender">
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="logs/archived/application.%d{yyyy-MM-dd-HH}.log.gz"/>
+            <param name="ActiveFileName" value="logs/application.log"/>
+        </rollingPolicy>
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%p] %c (%t): %m%n"/>
+        </layout>
+    </appender>
+
     <!-- Set all messages from this application to INFO -->
-    <logger name="com.btanabe.busnotifier">
+    <!-- Set the "additivity" parameter to false.  If true, the root logger will pick them up as well -->
+    <logger name="com.btanabe.busnotifier" additivity="false">
         <param name="level" value="info"/>
-        <appender-ref ref="ROLL"/>
+        <appender-ref ref="rollingFile"/>
     </logger>
 
     <!-- Setting the root logger level to "ERROR" forces all third-party messages to be at least of level ERROR -->
     <root>
         <param name="level" value="error"/>
-        <appender-ref ref="ROLL"/>
+        <appender-ref ref="rollingFile"/>
     </root>
 
 </log4j:configuration>

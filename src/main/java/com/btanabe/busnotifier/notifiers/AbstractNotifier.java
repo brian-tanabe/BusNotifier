@@ -24,7 +24,7 @@ public abstract class AbstractNotifier {
 
     @Subscribe
     private void receiveArrivalMessages(BusArrivalMessage message) throws Exception {
-        log.info("Notifier=[%s] received message=[%s]", getClass().getSimpleName(), message);
+        log.info(String.format("Notifier=[%s] received message=[%s]", getClass().getSimpleName(), message));
 
         postNotification(message);
         acknowledgeMessage(message);
