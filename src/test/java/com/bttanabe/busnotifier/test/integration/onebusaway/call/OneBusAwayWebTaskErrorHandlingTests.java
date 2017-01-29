@@ -29,7 +29,7 @@ public class OneBusAwayWebTaskErrorHandlingTests extends MockWebRequestBase {
     private KeyProvider keyProvider;
 
     @Test(expected = InvalidRequestException.class)
-    public void shuoldThrowInvalidRequestExceptionWHenErrorCode400IsReturned() throws Exception {
+    public void shouldThrowInvalidRequestExceptionWHenErrorCode400IsReturned() throws Exception {
         makeTestCall(STOP_INVALID_REQUEST);
     }
 

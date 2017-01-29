@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     compile 'org.projectlombok:lombok:1.16.4'
-    compile 'com.google.guava:guava:20.0'
+    compile 'com.google.guava:guava:21.0'
 
     // https://github.com/jankroken/commandline
     compile 'com.github.jankroken:commandline:1.7.0'
@@ -49,6 +49,9 @@ dependencies {
 
     // https://github.com/mirkojahn/jgntp/tree/master/src/main/java/com/google/code/jgntp
     compile 'com.google.code.jgntp:jgntp:1.2.1'
+
+    // https://github.com/dorkbox/Notify
+    compile 'com.dorkbox:Notify:2.17'
 
     // This allows you to make a standalone mac app
     // http://stackoverflow.com/questions/11037693/convert-java-application-to-mac-os-x-app

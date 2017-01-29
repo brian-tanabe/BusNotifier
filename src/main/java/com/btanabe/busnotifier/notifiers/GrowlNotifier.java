@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDateTime;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * Created by Brian on 11/19/16.
@@ -69,7 +70,7 @@ public class GrowlNotifier extends AbstractNotifier {
         log.info("Received notification: " + message);
 
         GntpApplicationInfo applicationInfo = applicationInfoFactory.createApplicationInfo();
-        GntpNotificationInfo notificationInfo = notificationInfoFactory.createNotificationInfo(applicationInfo, NOTIFICATION_NAME);
+        GntpNotificationInfo notificationInfo = GrowlNotificationInfoFactory.createNotificationInfo(applicationInfo, NOTIFICATION_NAME);
         GntpClient client = clientFactory.createClient(applicationInfo);
         GntpNotification notification = notificationFactory.createNotification(
                 notificationInfo,
@@ -78,7 +79,13 @@ public class GrowlNotifier extends AbstractNotifier {
                 iconCreator.createMessageIcon(message.getRouteName()));
 
         client.register();
-        client.notify(notification);
+        client.waitRegistration();
+
+        boolean isNotificationPostedSuccessfully = client.notify(notification, 30, SECONDS);
+
         client.shutdown(0, MILLISECONDS);
+        boolean isClientShutdown = client.isShutdown();
+
+        log.info(String.format("Notification successful=[%s], Shutdown successful=[%s]", isNotificationPostedSuccessfully, isClientShutdown));
     }
 }

@@ -55,7 +55,7 @@ public class ThreadPoolFactory {
     }
 
     private void createListeningScheduledExecutorService() {
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(corePoolSize);
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(corePoolSize, new ThreadPoolExecutor.CallerRunsPolicy());
         scheduledExecutorService = MoreExecutors.listeningDecorator(executor);
     }
 

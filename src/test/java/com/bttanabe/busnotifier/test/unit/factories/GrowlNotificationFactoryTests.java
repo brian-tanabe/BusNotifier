@@ -26,10 +26,12 @@ import javax.imageio.ImageIO;
 import java.time.LocalDateTime;
 
 import static com.btanabe.busnotifier.utilities.TimeHelper.getLocalDateTime;
+import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -85,7 +87,7 @@ public class GrowlNotificationFactoryTests {
     }
 
     @Test
-    public void shouldBeAbleToPostNotificationsWithTheCorrectTitle() {
+    public void shouldBeAbleToPostNotificationsWithTheCorrectTitle() throws Exception {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
         messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
@@ -93,7 +95,7 @@ public class GrowlNotificationFactoryTests {
     }
 
     @Test
-    public void shouldBeAbleToPostNotificationsWithTheCorrectText() {
+    public void shouldBeAbleToPostNotificationsWithTheCorrectText() throws Exception {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
         messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
@@ -101,7 +103,7 @@ public class GrowlNotificationFactoryTests {
     }
 
     @Test
-    public void shouldBeAbleToPostNotificationsWithTheCorrectApplicationName() {
+    public void shouldBeAbleToPostNotificationsWithTheCorrectApplicationName() throws Exception {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
         messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
@@ -109,7 +111,7 @@ public class GrowlNotificationFactoryTests {
     }
 
     @Test
-    public void shouldBeAbleToPostNotificationsWithTheCorrectName() {
+    public void shouldBeAbleToPostNotificationsWithTheCorrectName() throws Exception {
         BusArrivalMessage arrivalMessage = postTestMessage(TEST_EXPECTED_ARRIVAL_TIME, TEST_ROUTE_NAME, TEST_ROUTE_LOCATION);
         messageListener.blockUntilAcknowledgeMessageIsReceived(new AcknowledgedMessage(arrivalMessage));
 
@@ -130,8 +132,8 @@ public class GrowlNotificationFactoryTests {
         return message;
     }
 
-    private GntpNotification capturePostedNotification() {
-        verify(gntpClient).notify(notificationArgumentCaptor.capture());
+    private GntpNotification capturePostedNotification() throws Exception {
+        verify(gntpClient).notify(notificationArgumentCaptor.capture(), eq(30L), eq(SECONDS));
         return notificationArgumentCaptor.getValue();
     }
 }

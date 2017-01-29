@@ -11,6 +11,8 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 /**
  * Created by Brian on 11/20/16.
  */
@@ -36,6 +38,7 @@ public class GrowlClientFactory {
 
         GntpClient client = Gntp.client(applicationInfo).forHost(host).onPort(port).listener(listener).build();
         client.register();
+        client.waitRegistration(30, SECONDS);
 
         logPostClientConstruction(client);
 

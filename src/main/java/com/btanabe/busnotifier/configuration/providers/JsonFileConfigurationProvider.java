@@ -50,7 +50,7 @@ public class JsonFileConfigurationProvider implements ConfigurationProvider {
     public void setTravelWindowConfigurationFile(@NonNull String fileName) {
         travelWindowConfigurationFile = new File(fileName);
 
-        if(!travelWindowConfigurationFile.isFile()){
+        if (!travelWindowConfigurationFile.isFile()) {
             throw new ResourceNotFoundException();
         }
     }
@@ -63,7 +63,7 @@ public class JsonFileConfigurationProvider implements ConfigurationProvider {
     public void setApplicationConfigurationFile(@NonNull String fileName) {
         applicationConfigurationFile = new File(fileName);
 
-        if(!applicationConfigurationFile.isFile()){
+        if (!applicationConfigurationFile.isFile()) {
             throw new ResourceNotFoundException();
         }
     }
