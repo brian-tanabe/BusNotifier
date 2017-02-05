@@ -4,15 +4,18 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.ListeningScheduledExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Brian on 8/26/16.
  */
+@Slf4j
 @Setter
 public class ThreadPoolFactory {
     private Integer queueCapacity = 10;
@@ -55,7 +58,7 @@ public class ThreadPoolFactory {
     }
 
     private void createListeningScheduledExecutorService() {
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(corePoolSize, new ThreadPoolExecutor.CallerRunsPolicy());
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(corePoolSize);
         scheduledExecutorService = MoreExecutors.listeningDecorator(executor);
     }
 

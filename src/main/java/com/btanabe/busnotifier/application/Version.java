@@ -6,6 +6,6 @@ package com.btanabe.busnotifier.application;
 public class Version {
 
     public static String getVersion() {
-        return "0.1.0";
+        return "0.2.0";
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath*:/spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath*:/spring-configuration/growl-notifier-configurations/growl-image-configurations.xml"/>
+
+    <bean id="growlNotifier" class="com.btanabe.busnotifier.notifiers.GrowlNotifier">
+        <constructor-arg name="eventBus" ref="notificationEventBus"/>
+        <property name="notifierFactory" ref="notifierFactory"/>
+    </bean>
+
+    <bean id="growlApplicationConfigurationBuilder" class="fr.jcgay.notification.Application"
+          factory-method="builder">
+        <constructor-arg name="id" value="Bus Notifier"/>
+        <constructor-arg name="name" value="Bus Notifier"/>
+        <constructor-arg name="icon" ref="applicationIcon"/>
+    </bean>
+
+    <bean id="growlApplicationConfiguration" factory-bean="growlApplicationConfigurationBuilder"
+          factory-method="build"/>
+
+    <bean id="notifierFactory" class="com.btanabe.busnotifier.notifiers.notifier.NotifierFactory">
+        <property name="application" ref="growlApplicationConfiguration"/>
+    </bean>
+
+</beans>

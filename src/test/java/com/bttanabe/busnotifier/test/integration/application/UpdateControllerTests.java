@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.Resource;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -65,7 +66,7 @@ public class UpdateControllerTests extends MockWebRequestBase {
     }
 
     private Set<BusArrivalMessage> getUniqueBusArrivalMessages(List<BusArrivalMessage> busArrivalMessageList) {
-        Set<BusArrivalMessage> uniqueMessages = new HashSet<>();
+        Set<BusArrivalMessage> uniqueMessages = Collections.synchronizedSet(new HashSet<>());
         uniqueMessages.addAll(busArrivalMessageList);
         return uniqueMessages;
     }

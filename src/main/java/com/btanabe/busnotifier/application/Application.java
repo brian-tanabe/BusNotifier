@@ -9,6 +9,7 @@ import com.btanabe.busnotifier.tasks.MessageFactoryTask;
 import com.github.jankroken.commandline.CommandLineParser;
 import com.github.jankroken.commandline.OptionStyle;
 import com.google.common.eventbus.AsyncEventBus;
+import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.ListeningScheduledExecutorService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -34,6 +35,7 @@ public class Application {
 
     private AsyncEventBus eventBus;
     private ListeningScheduledExecutorService scheduledExecutorService;
+    private ListeningExecutorService executorService;
 
     private ArrivalsAndDeparturesForStopActivity arrivalsAndDeparturesForStopActivity;
     private UpdateController updateController;
@@ -52,11 +54,12 @@ public class Application {
     public void startApplication() throws Exception {
         updateController.startUpdateHeartbeat();
 
-        while (!scheduledExecutorService.isShutdown()) {
-            Thread.sleep(10);
+        while (!scheduledExecutorService.isShutdown() && !executorService.isShutdown()) {
+            Thread.sleep(1000);
         }
 
         logApplicationShutdown();
+        shutdownApplication();
     }
 
     private ConfigurationProvider parseCommandLineArguments(String[] arguments) {
@@ -84,11 +87,16 @@ public class Application {
 
         eventBus = (AsyncEventBus) requireNonNull(context.getBean("notificationEventBus"), "notificationEventBus");
         scheduledExecutorService = (ListeningScheduledExecutorService) requireNonNull(context.getBean("listeningScheduledExecutorService"), "listeningScheduledExecutorService");
+        executorService = (ListeningExecutorService) requireNonNull(context.getBean("listeningExecutorService"), "listeningExecutorService");
         arrivalsAndDeparturesForStopActivity = (ArrivalsAndDeparturesForStopActivity) requireNonNull(context.getBean("arrivalsAndDeparturesForStopActivity"), "arrivalsAndDeparturesForStopActivity");
 
-        GrowlNotifier growlNotifier = (GrowlNotifier) context.getBean("growlNotifier");
-        eventBus.register(growlNotifier);
-        notifierList.add(growlNotifier);
+        /**
+         * TODO: Pass in the notification list as a bean, register all notifiers in that list:
+         */
+        GrowlNotifier notifierNotifier = (GrowlNotifier) context.getBean("growlNotifier");
+
+        eventBus.register(notifierNotifier);
+        notifierList.add(notifierNotifier);
 
         updateController = createUpdateController(configurationProvider);
     }
@@ -109,6 +117,10 @@ public class Application {
 
     private void logApplicationShutdown() {
         log.info("Application shutting down");
+    }
+
+    private void shutdownApplication() {
+        System.exit(0);
     }
 
     public static void main(String[] arguments) throws Exception {

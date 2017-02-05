@@ -1,20 +1,19 @@
-package com.btanabe.busnotifier.utilities;
+package com.btanabe.busnotifier.utilities.images;
 
+import fr.jcgay.notification.Icon;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
-import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URL;
 
 import static java.awt.Font.BOLD;
 
@@ -24,23 +23,25 @@ import static java.awt.Font.BOLD;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class ImageHelper {
+public class NotificationIconFactory extends ImageHelper {
 
     private static final String BASE_IMAGE = "images/arrival-message-base-icon.png";
 
     // TODO Turn this into an interface to chose platform specific default fonts:
     private static final String FONT_NAME = "Helvetica Neue";
 
-    public RenderedImage createMessageIcon(String routeName) throws IOException {
-        BufferedImage bufferedImage = getBaseIconAsBufferedImage();
+    public URL createMessageIconImage(String routeName) throws IOException {
+        BufferedImage bufferedImage = getImageAsBufferedImage(BASE_IMAGE);
         overlayBusRouteNameOnImage(bufferedImage, routeName);
 
-        return bufferedImage;
+        return getFilesystemUrlForBufferedImage(bufferedImage);
     }
 
-    private BufferedImage getBaseIconAsBufferedImage() throws IOException {
-        InputStream imageInputStream = getClass().getClassLoader().getResourceAsStream(BASE_IMAGE);
-        return ImageIO.read(imageInputStream);
+    public Icon createMessageIcon(String routeName) throws IOException {
+        BufferedImage bufferedImage = getImageAsBufferedImage(BASE_IMAGE);
+        overlayBusRouteNameOnImage(bufferedImage, routeName);
+
+        return Icon.create(createMessageIconImage(routeName), routeName);
     }
 
     private void overlayBusRouteNameOnImage(BufferedImage image, String routeName) {

@@ -47,11 +47,8 @@ dependencies {
 
     compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
 
-    // https://github.com/mirkojahn/jgntp/tree/master/src/main/java/com/google/code/jgntp
-    compile 'com.google.code.jgntp:jgntp:1.2.1'
-
-    // https://github.com/dorkbox/Notify
-    compile 'com.dorkbox:Notify:2.17'
+    // https://github.com/jcgay/send-notification
+    compile 'fr.jcgay.send-notification:send-notification:0.10.1'
 
     // This allows you to make a standalone mac app
     // http://stackoverflow.com/questions/11037693/convert-java-application-to-mac-os-x-app

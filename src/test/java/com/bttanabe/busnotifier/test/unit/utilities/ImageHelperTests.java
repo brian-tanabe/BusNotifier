@@ -1,6 +1,6 @@
 package com.bttanabe.busnotifier.test.unit.utilities;
 
-import com.btanabe.busnotifier.utilities.ImageHelper;
+import com.btanabe.busnotifier.utilities.images.NotificationIconFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +20,7 @@ import static com.bttanabe.busnotifier.test.utilities.ImageComparator.assertImag
 @ContextConfiguration("classpath*:spring-configuration/unit-testing-configuration.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ImageHelperTests {
-    private final ImageHelper imageHelper = new ImageHelper();
+    private final NotificationIconFactory imageHelper = new NotificationIconFactory();
 
     @Value("classpath:test-images/expected-route11-icon.png")
     private Resource expectedRoute11Image;
@@ -30,7 +30,7 @@ public class ImageHelperTests {
 
     @Test
     public void shouldBeAbleToCreateBusArrivalIconsWithDoubleDigitNumbersCorrectly() throws Exception {
-        RenderedImage testImage = imageHelper.createMessageIcon("11");
+        RenderedImage testImage = ImageIO.read(imageHelper.createMessageIconImage("11"));
         BufferedImage expectedImage = ImageIO.read(expectedRoute11Image.getFile());
 
         assertImageEquals(testImage, expectedImage);
@@ -38,7 +38,7 @@ public class ImageHelperTests {
 
     @Test
     public void shouldBeAbleToCreateBusArrivalIconsWithFourCharactersCorrectly() throws Exception {
-        RenderedImage testImage = imageHelper.createMessageIcon("LINK");
+        RenderedImage testImage = ImageIO.read(imageHelper.createMessageIconImage("LINK"));
         BufferedImage expectedImage = ImageIO.read(expectedLinkImage.getFile());
 
         assertImageEquals(testImage, expectedImage);

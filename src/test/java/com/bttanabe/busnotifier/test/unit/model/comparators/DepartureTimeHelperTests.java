@@ -2,7 +2,6 @@ package com.bttanabe.busnotifier.test.unit.model.comparators;
 
 import com.btanabe.busnotifier.model.comparators.DepartureTimeHelper;
 import com.btanabe.busnotifier.model.types.ArrivalsAndDepartures;
-import com.btanabe.busnotifier.utilities.TimeHelper;
 import lombok.NonNull;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -42,6 +42,6 @@ public class DepartureTimeHelperTests {
     }
 
     private LocalDateTime createExpectedLocalDateTime(@NonNull Long epochTime) {
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochTime), TimeHelper.ZONE_ID);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochTime), ZoneId.systemDefault());
     }
 }

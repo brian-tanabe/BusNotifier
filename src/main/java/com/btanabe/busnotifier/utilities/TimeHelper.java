@@ -16,19 +16,16 @@ import java.util.concurrent.TimeUnit;
  */
 public class TimeHelper {
 
-    // TODO return system default ZoneId when I go back to Pacific Time:
-    public static final ZoneId ZONE_ID = ZoneId.of("GMT-8");
-
     public static Long getTimeDifferenceInMinutes(LocalDateTime closerTime, LocalDateTime fartherTime) {
         long timeDifference = getTimeEpochTime(fartherTime) - getTimeEpochTime(closerTime);
         return TimeUnit.MILLISECONDS.toMinutes(timeDifference);
     }
 
     public static Long getTimeEpochTime(LocalDateTime time) {
-        return time.atZone(ZONE_ID).toInstant().toEpochMilli();
+        return time.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
     }
 
     public static LocalDateTime getLocalDateTime(@NonNull Long epochTime) {
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochTime), ZONE_ID);
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochTime), ZoneId.systemDefault());
     }
 }

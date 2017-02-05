@@ -12,6 +12,7 @@ import com.google.common.eventbus.EventBus;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -46,6 +47,8 @@ public class MessageFactoryTask implements Runnable {
             List<ArrivalsAndDepartures> tripsToDisplay = filterOutTripsWhichAreNotInTheTravelWindowOrAreNotDepartingSoonEnough(travelWindow, sortedArrivalsAndDeparturesForRouteAtStop);
             postBusArrivalMessagesToMessageBus(createBusArrivalMessages(travelWindow, tripsToDisplay));
         });
+
+        log.info("Done posting notificaiton messages to the bus");
     }
 
     /**
@@ -62,6 +65,9 @@ public class MessageFactoryTask implements Runnable {
             List<ArrivalsAndDepartures> arrivalsAndDepartures = model.getData().getEntry().getArrivalsAndDepartures();
             return arrivalsAndDepartures.stream().filter(arrivalAndDeparture -> arrivalAndDeparture.getRouteId().equals(travelWindow.getRouteAtStopToMonitor().getRouteId())).collect(toList());
         } catch (Throwable throwable) {
+            log.error(String.format("Failed to get bus arrival information from OneBusAway due to exception=[%s], stacktrace: %s",
+                    throwable.getClass().getName(),
+                    ExceptionUtils.getStackTrace(throwable)));
             throw new RuntimeException(throwable);
         }
     }

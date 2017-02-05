@@ -6,6 +6,7 @@ import com.btanabe.busnotifier.message.internal.ShutdownSignal;
 import com.btanabe.busnotifier.tasks.MessageFactoryTask;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import com.google.common.util.concurrent.ListeningScheduledExecutorService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -13,7 +14,6 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import static java.util.Objects.isNull;
@@ -34,7 +34,7 @@ public class UpdateController {
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private ScheduledExecutorService scheduledThreadPool;
+    private ListeningScheduledExecutorService scheduledThreadPool;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -50,7 +50,7 @@ public class UpdateController {
 
         log.info(String.format("Starting update at every %d %s", updateFrequency, updateFrequencyTimeUnit.toString()));
 
-        scheduledThreadPool.scheduleAtFixedRate(messageFactoryTask, 0L, updateFrequency, updateFrequencyTimeUnit);
+        scheduledThreadPool.scheduleWithFixedDelay(messageFactoryTask, 0L, updateFrequency, updateFrequencyTimeUnit);
     }
 
     @Subscribe

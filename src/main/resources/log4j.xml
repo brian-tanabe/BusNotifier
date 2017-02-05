@@ -34,6 +34,11 @@
         <appender-ref ref="rollingFile"/>
     </logger>
 
+    <logger name="com.google.code.jgntp" additivity="false">
+        <param name="level" value="debug"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+
     <!-- Setting the root logger level to "ERROR" forces all third-party messages to be at least of level ERROR -->
     <root>
         <param name="level" value="error"/>

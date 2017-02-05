@@ -29,6 +29,7 @@ public class AcknowledgedMessageListener {
         long waitTimeout = 5000;
         for (long waitStartTime = System.currentTimeMillis(); System.currentTimeMillis() < waitStartTime + waitTimeout; ) {
             if (acknowledgedMessages.contains(expectedAcknowledgeMessage)) {
+                log.info(String.format("Found expected message: %s", expectedAcknowledgeMessage));
                 return;
             }
         }
